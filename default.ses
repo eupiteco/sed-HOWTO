@@ -223,20 +223,27 @@ silent! normal! zE
 16,105fold
 108,244fold
 246,302fold
-304,375fold
-377,451fold
-453,597fold
-599,725fold
-727,910fold
-912,1171fold
-1173,1227fold
-1229,1238fold
-1240,1277fold
-let s:l = 16 - ((5 * winheight(0) + 34) / 68)
+304,369fold
+371,442fold
+489,582fold
+444,582fold
+584,705fold
+707,883fold
+885,1161fold
+1163,1220fold
+1222,1231fold
+1233,1270fold
+444
+normal! zo
+489
+normal! zo
+444
+normal! zc
+let s:l = 444 - ((141 * winheight(0) + 35) / 70)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-16
+444
 normal! 0
 tabnext 1
 if exists('s:wipebuf')
