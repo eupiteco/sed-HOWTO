@@ -1,0 +1,255 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+map <silent>  :call ToggleVExplorer()
+vmap "" c""P
+vmap '' c''P
+vmap () c()P
+vmap <> c<>P
+vmap [% [%m'gv``
+vmap [] c[]P
+vmap ]% ]%m'gv``
+vmap a% [%v]%
+let s:cpo_save=&cpo
+set cpo&vim
+vmap gx <Plug>NetrwBrowseXVis
+nmap gx <Plug>NetrwBrowseX
+vmap n'' c'PO'
+vmap n"" c"PO"
+vmap n<> c>PO<
+vmap n() c)PO(
+vmap n[] c]PO[
+vmap n{} c}PO{
+vmap {} c{}P
+vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))
+map <F6> :setlocal spell! spelllang=pt_br
+inoremap    /<++>"_c4l
+imap ;html <!DOCTYPE html><head><title><++></title><link rel="stylesheet" type="text/css" href="<++>.css"><++></head><body><++></body></html>ggi
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set background=dark
+set backspace=2
+set fileencodings=ucs-bom,utf-8,default,latin1
+set helplang=pt
+set hlsearch
+set incsearch
+set modelines=0
+set ruler
+set runtimepath=~/.vim,~/.vim/bundle/indentLine,~/.vim/bundle/matchit,~/.vim/bundle/spell,~/.vim/bundle/wal-vim,/usr/share/vim/vimfiles,/usr/share/vim/vim80,/usr/share/vim/vim80/pack/dist/opt/matchit,/usr/share/vim/vimfiles/after,~/.vim/after
+set scrolloff=5
+set shiftwidth=2
+set noswapfile
+set tabstop=2
+set wildmenu
+set wildmode=list:longest
+set window=0
+set nowritebackup
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/repos/sed-HOWTO
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +0 sed-howto.html
+argglobal
+silent! argdel *
+$argadd sed-howto.html
+edit sed-howto.html
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+argglobal
+nmap <buffer> ;clr :%s/[[:alnum:]]\+=""//g
+vmap <buffer> ;span c<span>pa</span>
+vmap <buffer> ;nav c</nav>PO<nav class="<++>" id="<++>">?<navi  
+vmap <buffer> ;div c</div>PO<div class="<++>" id="<++>">?<divi  
+vmap <buffer> ;st c<strong>pa</strong>
+vmap <buffer> ;p c<p>pa</p>
+vmap <buffer> ;h6 c<h6 class="<++>" id="<++>">pa</h6>
+vmap <buffer> ;h5 c<h5 class="<++>" id="<++>">pa</h5>
+vmap <buffer> ;h4 c<h4 class="<++>" id="<++>">pa</h4>
+vmap <buffer> ;h3 c<h3> class="<++>" id="<++>"pa</h3>
+vmap <buffer> ;h2 c<h2 class="<++>" id="<++>">pa</h2>
+vmap <buffer> ;h1 c<h1 class="<++>" id="<++>">pa</h1>
+vmap <buffer> ;em c<em>pa</em>
+vmap <buffer> ;a c<a class="<++>" id="<++>" href="<++>">pa</a>
+imap <buffer> ;span <span class="<++>" id="<++>"><++></span><++>?<spani  
+imap <buffer> ;nav <nav class="<++>" id="<++>">	<++></nav>?navni  
+imap <buffer> ;div <div class="<++>" id="<++>">	<++></div>?divni  
+imap <buffer> ;script <script src="<++>"></script>?<scripti  
+imap <buffer> ;img <img src="<++>" class="<++>" id="<++>"/>?imgi  
+imap <buffer> ;txa <textarea class="<++>" id="<++>" name="<++>" rows="<++>" cols="<++>"></textarea><++>?<textareai  
+imap <buffer> ;sel <select class="<++>" id="<++>" name="<++>"><++></select><++>?<selecti  
+imap <buffer> ;opt <option value="<++>"><++></option><++>?<optioni  
+imap <buffer> ;lbl <label class="<++>" id="<++>" for="<++>"><++></label><++>?<labeli  
+imap <buffer> ;itxt <input type="text" class="<++>" id="<++>" name="<++>" placeholder="<++>" <++>><++>?<inputi  
+imap <buffer> ;isub <input type="submit" >
+imap <buffer> ;irad <input type="radio" class="<++>" id="<++>" name="<++>" value="<++>" <++>><++>?<inputi  
+imap <buffer> ;ipass <input type="password" class="<++>" id="<++>" name="<++>" placeholder="<++>" <++>><++>?<inputi  
+imap <buffer> ;imail <input type="email" class="<++>" id="<++>" name="<++>" placeholder="<++>" <++>><++>?<inputi  
+imap <buffer> ;ichk <input type="checkbox" class="<++>" id="<++>" name="<++>" value="<++>" <++>><++>?<inputi  
+imap <buffer> ;form <form class="<++>" id="<++>"><++></form><++>?formni  
+imap <buffer> ;btn <button class="<++>" id="<++>"><++></button><++>?<button>i  
+imap <buffer> ;td <td class="<++>" id="<++>"><++></td><++>?<td>i  
+imap <buffer> ;tr <tr class="<++>" id="<++>">	<++></tr><++>?trni  
+imap <buffer> ;thead <thead class="<++>" id="<++>">	<++></thead><++>?theadni  
+imap <buffer> ;th <th class="<++>" id="<++>">	<++></th><++>?<th>i  
+imap <buffer> ;tbody <tbody class="<++>" id="<++>">	<++></tbody><++>?tbodyni  
+imap <buffer> ;table <table class="<++>" id="<++>">	<++></table><++>?tableni  
+imap <buffer> ;li <li class="<++>" id="<++>"><++></li>?<li>i  
+imap <buffer> ;ul <ul class="<++>" id="<++>">	<++></ul>?ulni  
+imap <buffer> ;ol <ol class="<++>" id="<++>">	<++></ol>?olni  
+imap <buffer> ;st <strong><++></strong>?<strong>i  
+imap <buffer> ;p <p><++></p>?<pi  
+imap <buffer> ;h6 <h6 class="<++>" id="<++>"><++></h6>?<h6>i  
+imap <buffer> ;h5 <h class="<++>" id="<++>"5><++></h5>?<h5>i  
+imap <buffer> ;h4 <h4 class="<++>" id="<++>"><++></h4>?<h4>i  
+imap <buffer> ;h3 <h3 class="<++>" id="<++>"><++></h3>?<h3>i  
+imap <buffer> ;h2 <h2 class="<++>" id="<++>"><++></h2>?<h2>i  
+imap <buffer> ;h1 <h1  class="<++>" id="<++>"><++></h1>?<h1>i  
+imap <buffer> ;em <em><++></em>?<em>i  
+imap <buffer> ;a <a class="<++>" id="<++>" href="<++>"><++></a>?<ai  
+setlocal autoindent
+setlocal backupcopy=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+setlocal commentstring=<!--%s-->
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'html'
+setlocal filetype=html
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=HtmlIndent()
+setlocal indentkeys=o,O,<Return>,<>>,{,},!^F
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:],<:>
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=htmlcomplete#CompleteTags
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+set relativenumber
+setlocal relativenumber
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal signcolumn=auto
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != 'html'
+setlocal syntax=html
+endif
+setlocal tabstop=2
+setlocal tagcase=
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+16,105fold
+108,244fold
+246,302fold
+304,375fold
+377,451fold
+453,597fold
+599,725fold
+727,910fold
+912,1171fold
+1173,1227fold
+1229,1238fold
+1240,1277fold
+let s:l = 16 - ((5 * winheight(0) + 34) / 68)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+16
+normal! 0
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+set winminheight=1 winminwidth=1
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
