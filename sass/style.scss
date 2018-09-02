@@ -6,7 +6,8 @@
 // Cores
 $main-color: $oc-lime-8;
 $bg-color: $oc-gray-0;
-$code-bg-color: $oc-gray-3;
+$code-bg-color: $oc-gray-9;
+$code-color: $oc-gray-3;
 $link-color: $main-color;
 $text-color: $oc-gray-9;
 // Tipografia
@@ -86,20 +87,31 @@ h4, h5, h6 {
 	font-size: $baseFontSize * 1.2;
 	line-height: $baseLineHeight * 1.2;
 }
+// parágrafos
 p {
 	margin: $smallSpacer 0;
 }
 
+// código
+pre {
+	padding: $smallSpacer / 2 $smallSpacer;
+	border-radius: 3px;
+	background-color: $code-bg-color;
+	color: $code-color;
+	overflow-x: auto;
+}
 code {
-	padding: 3px 4px;
+	padding: 2px;
 	font-family: monospace;
 	border-radius: 2px;
 	background-color: $code-bg-color;
+	color: $code-color;
 }
 
+// listas
 ul {
 	list-style: none;
-	margin-bottom: $smallSpacer;
+	margin: 0 0 $smallSpacer $smallSpacer;
 }
 
 nav ul {
@@ -116,6 +128,6 @@ article ul {
 }
 
 .container {
-	max-width: 1200px;
+	max-width: 1600px;
 	margin: 0 auto;
 }

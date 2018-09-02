@@ -263,7 +263,7 @@
 
   <p>Sendo um editor de textos não interativo, o <em>Sed</em> é excelente para desempenhar algumas tarefas, mas em outras seu uso não é aconselhado.</p>
 
-  <h4>2.31. Quando usar o Sed</h4>
+  <h4>2.3.1 Quando usar o Sed</h4>
 
   <p>A característica principal do <em>Sed</em> é poder editar arquivos automaticamente.</p>
 
@@ -284,7 +284,7 @@ veremos adiante) é até simples, bastando definir uma série de regras de
 procura e troca, e o programa se encarregará de executá-las e arrumar os
  relatórios.</p>
 
-  <h4>2.32. Quando não usar o Sed</h4>
+  <h4>2.3.2 Quando não usar o Sed</h4>
 
   <p><strong>Nenhuma</strong> ferramenta é ideal para todas as tarefas, e o <em>Sed</em> não é uma exceção à regra.</p>
 
@@ -329,29 +329,29 @@ na saída padrão (STDOUT). vai para a próxima linha e repete o processo.</li>
 
   <p>A sintaxe genérica de um comando <em>Sed</em> é:</p>
 
-  <code>sed [opções] regras [arquivo] </code>
+  <pre>sed [opções] regras [arquivo] </pre>
 
   <p>Sendo que <code>regras</code> tem a forma genérica de:</p>
 
-  <code>[endereço1 [, endereço2]] comando [argumento] </code>
+  <pre>[endereço1 [, endereço2]] comando [argumento] </pre>
 
-  <h4>3.21. Exemplo</h4>
+  <h4>3.2.1 Exemplo</h4>
 
   <p>Como notação tradicional, o que está <code>[entre colchetes]</code> é opcional, então a sintaxe <em>Sed</em> mais simples que existe é <code>sed regra</code> como em:</p>
 
-  <code>prompt$ cat texto.txt | sed p </code>
+  <pre>prompt$ cat texto.txt | sed p </pre>
 
   <p>Ou seja, o <em>Sed</em> lendo da entrada padrão o conteúdo do arquivo <em>texto.txt</em> via duto <strong><code>|</code></strong>, aplica o comando <strong><code>p</code></strong> para todas as linhas do arquivo, ou seja, as duplica.</p>
 
-  <h4>3.22. Outros exemplos</h4>
+  <h4>3.2.2 Outros exemplos</h4>
 
   <p>Um outro exemplo do <em>Sed</em> com <code>opções</code> e recebendo um arquivo como parâmetro seria:</p>
 
-  <code>prompt$ sed -n p texto.txt </code>
+  <pre>prompt$ sed -n p texto.txt </pre>
 
   <p>E ainda, agora especificando um <strong>endereço</strong> para o comando <strong><code>p</code></strong>:</p>
 
-  <code>prompt$ sed -n 5p texto.txt </code>
+  <pre>prompt$ sed -n 5p texto.txt </pre>
 
   <p>Ou seja, este comando imprime apenas a <strong>linha 5</strong> do <em>texto.txt</em></p>
 
@@ -363,9 +363,11 @@ de manipulação de texto, aceitando como parâmetro um nome de arquivo, ou
 
   <p>E como dica geral <strong>SEMPRE</strong> coloque os comandos do <em>Sed</em> entre aspas simples '', para evitar que o <em>shell</em> os interprete erroneamente. Veja mais detalhes no tópico <a href="#sed-e-shell">Sed e shell</a>.</p>
 
-  <code>prompt$ sed 'p' texto.txt prompt$ cat texto.txt | sed 'p'
+<pre>
+prompt$ sed 'p' texto.txt 
+prompt$ cat texto.txt | sed 'p'
 prompt$ sed 'p' &lt; texto.txt
-</code>
+</pre>
 
   <p>Com outra opção ainda, pode-se executar diretamente um arquivo com comandos Sed. Para mais informações, veja o tópico <a href="#arquivos-executaveis">Tornando arquivos Sed executáveis</a>.</p>
 	</section>
@@ -374,13 +376,15 @@ prompt$ sed 'p' &lt; texto.txt
 
   <h3 id="descricao-dos-comandos">4.1 Descrição de todos os comandos</h3>
 
-  <code>prompt$ man sed prompt$ pinfo sed
-</code>
+  <pre>prompt$ man sed
+prompt$ pinfo sed </pre>
 
   <p>Ou num resumo rápido:</p>
 
-  <code>Legenda: 
-[ARQUIVO]       arquivo ou fluxo de texto (via pipe) original a ser modificado
+<pre>
+Legenda: 
+[ARQUIVO]       arquivo ou fluxo de texto (via pipe) original a
+                ser modificado
 [TEXTO]         trecho de texto. pode ser uma palavra, uma linha,
                 várias separadas por \n, ou mesmo um vazio.
 [PADRÃO]        [TEXTO] contido no ESPAÇO PADRÃO
@@ -423,12 +427,11 @@ D       apaga a primeira linha do [PADRÃO]
 n       vai para a próxima linha
 N       anexa a próxima linha no [PADRÃO]
 q       finaliza o Sed imediatamente
-
-</code>
+</pre>
 
   <h3 id="lista-dos-comandos">4.2 Lista de todos os comandos por categoria</h3>
 
-  <code>                   informações = marcadores :
+  <pre>                   informações = marcadores :
                    comentários #
             comandos de edição s i c a y
      comandos de registradores g G h H x
@@ -440,7 +443,7 @@ q       finaliza o Sed imediatamente
                       endereço // ,
                    limitadores {} \(\)
        registradores dinâmicos \1 \2 ... \9
-</code>
+</pre>
 	</section>
 	<section>
   <h2 id="conceitos-basicos">5. Conceitos básicos</h2>
@@ -449,27 +452,27 @@ q       finaliza o Sed imediatamente
 
   <h3 id="suprimir-saida-padrao">5.1 Suprimindo a saída padrão</h3>
 
-  <h4>5.11. Saída normal</h4>
+  <h4>5.1.1 Saída normal</h4>
 
   <p>Normalmente o <em>Sed</em> sempre imprime na <strong>saída padrão</strong> todas as linhas do arquivo, modificadas ou não.</p>
 
   <p>Veja o primeiro exemplo citado:</p>
 
-  <code>prompt$ sed 'p' texto.txt </code>
+  <pre>prompt$ sed 'p' texto.txt </pre>
 
   <p>O comando <strong><code>p</code></strong> imprime a linha na saída padrão. Este exemplo <strong>duplica</strong> todas as linhas do arquivo pois, além da impressão normal de cada linha, ainda é aplicado o comando <strong><code>p</code></strong> em cada uma, que diz "imprima esta linha", fazendo com que ela apareça duas vezes.</p>
 
-  <h4>5.12. Saída suprimida</h4>
+  <h4>5.1.2 Saída suprimida</h4>
 
   <p>Temos como modificar este comportamento com a opção <strong><code>-n</code></strong>, que significa "não imprima na saída, a não ser quando especificado com o comando <strong><code>p</code></strong> ou o <strong><code>l</code></strong>".</p>
 
   <p>Assim sendo, colocando o <strong><code>-n</code></strong>, eliminamos o comportamento padrão de "imprimir sempre na saída":</p>
 
-  <code>prompt$ sed -n 'p' texto.txt </code>
+  <pre>prompt$ sed -n 'p' texto.txt </pre>
 
   <p>Que resulta no conteúdo do arquivo, pois cada linha é impressa apenas uma vez, devido ao comando <strong><code>p</code></strong>. Assim fica fácil entender como funciona o exemplo já citado que imprime apenas a <strong>linha 5</strong> de um arquivo:</p>
 
-  <code>prompt$ sed -n 5p texto.txt </code>
+  <pre>prompt$ sed -n 5p texto.txt </pre>
 
   <p>Ok, a explicação daquele <strong>5</strong> ali perdido vem logo a seguir no tópico O endereço :)</p>
 
@@ -479,46 +482,46 @@ q       finaliza o Sed imediatamente
 
   <p>Caso o endereço não seja informado, o comando <em>Sed</em> será aplicado para <strong>todas</strong> as linhas.</p>
 
-  <h4>5.21. Endereço simples</h4>
+  <h4>5.2.1 Endereço simples</h4>
 
   <p>Por exemplo, referenciando a linha pelo seu número, como já foi visto anteriormente:</p>
 
-  <code>prompt$ sed '5d' texto.txt </code>
+  <pre>prompt$ sed '5d' texto.txt </pre>
 
   <p>Mas também poderia ser uma linha que tivesse uma palavra qualquer:</p>
 
-  <code>prompt$ sed '/estorvo/d' texto.txt </code>
+  <pre>prompt$ sed '/estorvo/d' texto.txt </pre>
 
   <p>O comando <strong><code>d</code></strong> apaga linhas segundo o endereço, então este comando apagará todas as linhas que tiverem a palavra <code>estorvo</code>. Este exemplo tem o funcionamento idêntico ao comando:</p>
 
-  <code>prompt$ grep -v estorvo texto.txt </code>
+  <pre>prompt$ grep -v estorvo texto.txt </pre>
 
-  <h4>5.22. Intervalo</h4>
+  <h4>5.2.2 Intervalo</h4>
 
   <p>Como endereço, ainda se pode especificar um <strong>intervalo</strong>, como da linha 5 até a linha 10, ou da linha 5 até a linha que tiver a palavra <code>estorvo</code>:</p>
 
-  <code>prompt$ sed '5,10d' texto.txt
+  <pre>prompt$ sed '5,10d' texto.txt
 prompt$ sed '5,/estorvo/d' texto.txt
-</code>
+</pre>
 
   <p>No endereço, temos um caractere especial, o <strong><code>$</code></strong> que referencia à <strong>última</strong> linha do texto. Assim sendo, para apagar da <strong>linha 10</strong> até o <strong>final</strong> do texto, o comando é:</p>
 
-  <code>prompt$ sed '10,$d' texto.txt
-</code>
+  <pre>prompt$ sed '10,$d' texto.txt
+</pre>
 
-  <h4>5.23. Outros</h4>
+  <h4>5.2.3 Outros</h4>
 
   <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.0a</strong>(*), foi adicionada uma maneira nova de especificar um endereço:</p>
 
-  <code>prompt$ sed '/estorvo/,+3d' texto.txt
-</code>
+  <pre>prompt$ sed '/estorvo/,+3d' texto.txt
+</pre>
 
   <p>Que referencia a linha que contém a palavra <code>estorvo</code> e mais as <strong>3</strong> linhas seguintes.</p>
 
   <p>E pra finalizar, como já dito anteriormente, quando o comando <strong>não</strong> tem endereço, é aplicado para todas as linhas:</p>
 
-  <code>prompt$ sed 'd' texto.txt
-</code>
+  <pre>prompt$ sed 'd' texto.txt
+</pre>
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
@@ -528,14 +531,14 @@ prompt$ sed '5,/estorvo/d' texto.txt
 
   <p>Isso é útil no nosso exemplo anterior de emular o comando <em>head</em>, imprimindo apenas as 10 primeiras linhas do arquivo:</p>
 
-  <code>sed '10q'         ao chegar na linha 10, pare.
-</code>
+  <pre>sed '10q'         ao chegar na linha 10, pare.
+</pre>
 
   <p>Ou ainda, para obter apenas os cabeçalhos de uma mensagem de 
 e-mail, que são separados do corpo da mensagem por uma linha em branco:</p>
 
-  <code>sed '/^$/q'       pare na primeira linha em branco que achar
-</code>
+  <pre>sed '/^$/q'       pare na primeira linha em branco que achar
+</pre>
 
   <h3 id="inverter-logica">5.4 Invertendo a lógica</h3>
 
@@ -543,41 +546,41 @@ e-mail, que são separados do corpo da mensagem por uma linha em branco:</p>
 
   <p>Temos o comando <em>head</em> que imprime as 10 primeiras linhas de um arquivo. Com as dicas já vistas, podemos fazer esta tarefa com o <em>Sed</em> assim:</p>
 
-  <code>sed -n '1,10p'    imprima apenas da linha 1 até a 10
+  <pre>sed -n '1,10p'    imprima apenas da linha 1 até a 10
 sed '11,$d'       apague da linha 11 até o final
-</code>
+</pre>
 
   <p>Ou ainda, podemos inverter a lógica e fazer:</p>
 
-  <code>sed '1,10!d'      NÃO apague da linha 1 até a 10 (ou seja, apague as outras)
+  <pre>sed '1,10!d'      NÃO apague da linha 1 até a 10 (ou seja, apague as outras)
 sed -n '11,$!p'   NÃO imprima da linha 11 até o final (ou seja, imprima as outras)
-</code>
+</pre>
 
   <p>A dica é sempre complementar a leitura mental com o inverso (entre parênteses nos exemplos), ou seja, se o <em>Sed</em> NÃO vai aplicar um comando em determinadas linhas, isso quer dizer implicitamente que este comando <strong>será aplicado</strong> em todas as outras linhas. É estranho, mas acostuma :)</p>
 
   <h3 id="aplicar-varios-comandos">5.5 Aplicando vários comandos de uma vez</h3>
 
-  <h4>5.51. Comandos normais</h4>
+  <h4>5.5.1 Comandos normais</h4>
 
   <p>É possível aplicar vários comandos <em>Sed</em>, em <strong>seqüência</strong>. Basta separá-los por ponto-e-vírgula.</p>
 
-  <code>prompt$ sed '5d;10d;/estorvo/d' texto.txt
-</code>
+  <pre>prompt$ sed '5d;10d;/estorvo/d' texto.txt
+</pre>
 
   <p>Este comando apaga as linhas 5, 10 e as que têm <code>estorvo</code> do arquivo <em>texto.txt</em>.</p>
 
-  <h4>5.52. Comandos com parâmetros</h4>
+  <h4>5.5.2 Comandos com parâmetros</h4>
 
   <p>Os comandos que recebem parâmetros (<strong><code>r</code></strong>, <strong><code>w</code></strong>, <strong><code>i</code></strong>, <strong><code>a</code></strong>, <strong><code>c</code></strong>), não aceitam o ponto-e-vírgula como separador, pois este pode ser parte integrante do parâmetro esperado.</p>
 
   <p>Estes comandos devem ser separados dos restantes, sendo passados como comandos isolados, pela opção de linha de comando <strong><code>-e</code></strong>:</p>
 
-  <code>prompt$ sed -e '1i começo de tudo' -e '5d' texto.txt
-</code>
+  <pre>prompt$ sed -e '1i começo de tudo' -e '5d' texto.txt
+</pre>
 
   <p>Este comando insere a frase <code>começo de tudo</code> antes da primeira linha e apaga a quinta linha do arquivo <em>texto.txt</em>.</p>
 
-  <h4>5.53. Terceira via</h4>
+  <h4>5.5.3 Terceira via</h4>
 
   <p>Outra maneira de especificar vários comandos (e a mais consistente e
  garantida) é colocá-los num arquivo, um por linha. Veja o tópico <a href="#comandos-em-arquivo">Colocando comandos Sed num arquivo</a>.</p>
@@ -596,11 +599,11 @@ alguns caracteres especiais como <strong><code>$</code></strong>, <strong><code>
 
   <p>Para evitar isso coloque os comandos <em>Sed</em> <strong>sempre</strong> entre aspas simples:</p>
 
-  <code>prompt$ sed 's/isso/aquilo/' texto.txt </code>
+  <pre>prompt$ sed 's/isso/aquilo/' texto.txt </pre>
 
   <p>Salvo quando no meio do comando <em>Sed</em>, existir algo que deva ser interpretado, como uma variável por exemplo. Neste caso coloque os comandos entre aspas duplas:</p>
 
-  <code>prompt$ sed "s/$HOME/aquilo/" texto.txt </code>
+  <pre>prompt$ sed "s/$HOME/aquilo/" texto.txt </pre>
 
   <p>Ou ainda, para evitar completamente a interpretação do shell, sem 
 se preocupar com aspas, coloque os comandos Sed num arquivo. Veja o 
@@ -608,32 +611,32 @@ tópico <a href="#comandos-em-arquivo">Colocando comandos Sed num arquivo</a>.</
 
   <h3 id="outros-delimitadores">6.2 Usando outros delimitadores</h3>
 
-  <h4>6.21. No comando s</h4>
+  <h4>6.2.1 No comando s</h4>
 
   <p>É comum ao fazer um comando de substituição <strong><code>s///</code></strong> conter uma <strong><code>/</code></strong> num dos dois lados do comando, como quando querendo substituir <code>/usr/local/bin</code> por <code>/usr/bin</code>.</p>
 
   <p>Sendo a barra o delimitador do comando <strong><code>s</code></strong> as outras barras comuns devem ser escapadas com a barra invertida <strong><code>\</code></strong>, para não serem confundidas com os delimitadores normais, ficando o monstro a seguir:</p>
 
-  <code>prompt$ sed 's/\/usr\/local\/bin/\/usr\/bin/' texto.txt </code>
+  <pre>prompt$ sed 's/\/usr\/local\/bin/\/usr\/bin/' texto.txt </pre>
 
   <p>Para evitar ter que ficar se escapando todas estas barras, basta lembrar que o comando <strong><code>s</code></strong> aceita <strong>qualquer</strong>
  delimitador, sendo a barra apenas um padrão de referências históricas. 
 Então, neste caso, poderíamos escolher outro delimitador como por 
 exemplo a vírgula:</p>
 
-  <code>prompt$ sed 's,/usr/local/bin,/usr/bin,' texto.txt </code>
+  <pre>prompt$ sed 's,/usr/local/bin,/usr/bin,' texto.txt </pre>
 
   <p>Evitando-se de ter que ficar escapando as barras. A mesma dica vale para o comando <strong><code>y</code></strong>.</p>
 
-  <h4>6.22. No endereço</h4>
+  <h4>6.2.2 No endereço</h4>
 
   <p>E se precisássemos apagar as linhas que contém o <code>/usr/local/bin</code>? Teríamos que colocar o nome do diretório no endereço do comando <strong><code>d</code></strong>, voltando com a festa dos escapes:</p>
 
-  <code>prompt$ sed '/\/usr\/local\/bin/d' texto.txt </code>
+  <pre>prompt$ sed '/\/usr\/local\/bin/d' texto.txt </pre>
 
   <p>Para usarmos outro delimitador no endereço, basta escaparmos o primeiro, que no caso abaixo é a vírgula:</p>
 
-  <code>prompt$ sed '\,/usr/local/bin,d' texto.txt </code>
+  <pre>prompt$ sed '\,/usr/local/bin,d' texto.txt </pre>
 
   <p>Confusão de delimitadores com o texto a ser procurado é muito comum
  de acontecer, então se algo não está funcionando como deveria, olhe com
@@ -643,44 +646,43 @@ exemplo a vírgula:</p>
 
   <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.0.80</strong>(*), vários escapes novos foram adicionados e podem ser usados nas duas partes do comando <strong><code>s///</code></strong>:</p>
 
-  <code>
-		\a      beep             (apito)
-   \f      form-feed        (avança linha)
-   \n      newline          (quebra de linha)
-   \r      carriage-return  (retorno de carro)
-   \t      hTAB             (tabulação horizontal)
-   \v      vTAB             (tabulação vertical)
-   \oNNN   o caractere de valor octal NNN
-   \dNNN   o caractere de valor decimal NNN
-   \xNN    o caractere de valor hexadecimal NN
-</code>
+  <pre>\a      beep             (apito)
+\f      form-feed        (avança linha)
+\n      newline          (quebra de linha)
+\r      carriage-return  (retorno de carro)
+\t      hTAB             (tabulação horizontal)
+\v      vTAB             (tabulação vertical)
+\oNNN   o caractere de valor octal NNN
+\dNNN   o caractere de valor decimal NNN
+\xNN    o caractere de valor hexadecimal NN
+</pre>
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
   <h3 id="resultado-mesmo-arquivo">6.4 Gravando o resultado no mesmo arquivo</h3>
 
-  <h4>6.41. Problema inicial</h4>
+  <h4>6.4.1 Problema inicial</h4>
 
   <p>O procedimento comum quando se quer gravar num arquivo o resultado de um comando <em>Sed</em>, é o redirecionamento:</p>
 
-  <code>prompt$ sed 'comando' texto.txt &gt; texto-alterado.txt </code>
+  <pre>prompt$ sed 'comando' texto.txt &gt; texto-alterado.txt </pre>
 
   <p>Mas é muito comum, ao alterarmos um arquivo, queremos gravar estas alterações no <strong>próprio</strong> arquivo original. A tentativa intuitiva seria:</p>
 
-  <code>prompt$ sed 'comando' texto.txt &gt; texto.txt </code>
+  <pre>prompt$ sed 'comando' texto.txt &gt; texto.txt </pre>
 
   <p>Mas é só fazer para ver. Além de não dar certo, você ainda perderá <strong>todo</strong> o conteúdo do arquivo.</p>
 
   <p>Isso acontece porque ao fazer o redirecionamento <strong><code>&gt;</code></strong>, o <code>shell</code> abre imediatamente o arquivo referenciado, antes mesmo de começar a executar o comando <em>Sed</em>. E como este é um redirecionamento destrutivo <strong><code>&gt;</code></strong> e não incremental <strong><code>&gt;&gt;</code></strong>, se o arquivo já existir, ele será truncado, e seu conteúdo perdido. A essa altura, o <em>Sed</em> começará seu processamento já lendo um arquivo <em>texto.txt</em> vazio, e aplicados qualquer comandos <em>Sed</em> num arquivo vazio, o resultado será o próprio arquivo vazio.</p>
 
-  <h4>6.42. Solução genérica</h4>
+  <h4>6.4.2 Solução genérica</h4>
 
   <p>Para evitar isso, voltamos a primeira tática de gravar o resultado num outro arquivo, e depois o mais natural é <strong>mover</strong> o arquivo novo sobre o original:</p>
 
-  <code>
+  <pre>
 prompt$ sed 'comando' texto.txt &gt; texto-alterado.txt
 prompt$ mv texto-alterado.txt texto.txt
-</code>
+</pre>
 
   <p>Para a grande maioria dos casos, isso é suficiente, mas convém aqui
  lembrar que caso o arquivo 'texto.txt' possua atributos especiais, 
@@ -690,15 +692,15 @@ Ao mover o arquivo recém-criado, com os atributos padrão do sistema,
 sobre o original, este perderá seus atributos e ficará com os padrões do
  sistema, <strong>herdado</strong> do arquivo novo.</p>
 
-  <h4>6.43. Solução segura</h4>
+  <h4>6.4.3 Solução segura</h4>
 
   <p>Para evitar isso, a abordagem mais ortodoxa e segura seria aplicar o comando <em>Sed</em> numa cópia e gravar o resultado no arquivo original via redirecionamento:</p>
 
-  <code>
+  <pre>
 prompt$ cp -a texto.txt texto-tmp.txt
 prompt$ sed 'comando' texto-tmp.txt &gt; texto.txt
 prompt$ rm texto-tmp.txt
-</code>
+</pre>
 
   <p>Novamente, isso só é necessário com arquivos especiais, senão a solução com o <em>mv</em>
  pode ser usada. Mas é importante ter em mente esta outra maneira e 
@@ -714,19 +716,19 @@ aplicável a qualquer outro comando do sistema que leia e grave arquivos.</p>
  Com isso a tarefa de colocar cada palavra numa linha isolada, ou seja, 
 trocar espaços em branco por quebras de linha, fica trivial:</p>
 
-  <code>prompt$ sed 's/ /\n/g' texto.txt </code>
+  <pre>prompt$ sed 's/ /\n/g' texto.txt </pre>
 
   <p>Mas com outras versões do <em>Sed</em> que não entendem este escape, a quebra de linha deve ser inserida <strong>literalmente</strong> e deve ser escapada:</p>
 
-  <code>
+  <pre>
 prompt$ sed 's/ /\
 prompt$ /g' texto.txt
-</code>
+</pre>
 
   <p>Como curiosidade, a operação inversa, de colocar todas as linhas de
  um arquivo numa linha só, já é mais trabalhosa e utiliza o conceito de <em>laço</em>:</p>
 
-  <code>prompt$ sed ':a;$!N;s/\n/ /g;ta' </code>
+  <pre>prompt$ sed ':a;$!N;s/\n/ /g;ta' </pre>
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
@@ -740,41 +742,41 @@ prompt$ /g' texto.txt
 
   <p>O jeito padrão do <em>Sed</em> ser "ignore-case", é dizendo literalmente todas as possibilidades, como em:</p>
 
-  <code>prompt$ sed '/[Rr][Oo][Oo][Tt]/d' texto.txt </code>
+  <pre>prompt$ sed '/[Rr][Oo][Oo][Tt]/d' texto.txt </pre>
 
   <p>Para apagar todas as linhas que contêm a palavra <code>root</code>, <code>ROOT</code>, <code>RooT</code> etc.</p>
 
   <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.0-beta1</strong>(*), foi adicionado o modificador <strong><code>I</code></strong> no endereço e no comando <strong><code>s///</code></strong>, fazendo com que o comando acima fique mais simples:</p>
 
-  <code>prompt$ sed '/root/Id' texto.txt </code>
+  <pre>prompt$ sed '/root/Id' texto.txt </pre>
 
   <p>Ou ainda:</p>
 
-  <code>prompt$ sed 's/root/administrador/Ig' texto.txt </code>
+  <pre>prompt$ sed 's/root/administrador/Ig' texto.txt </pre>
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
   <h3 id="ler-e-gravar-arquivos-externos">7.4 Lendo e gravando em arquivos externos</h3>
 
-  <h4>7.41. Lendo arquivos</h4>
+  <h4>7.4.1 Lendo arquivos</h4>
 
   <p>Uma tarefa comum é incluir cabeçalho e rodapé num arquivo qualquer. O <em>Sed</em> possui um comando específico para ler arquivos, o <strong><code>r</code></strong>, então basta(*):</p>
 
-  <code>prompt$ sed -e '1r cabecalho.txt' -e '$r rodape.txt' texto.txt </code>
+  <pre>prompt$ sed -e '1r cabecalho.txt' -e '$r rodape.txt' texto.txt </pre>
 
   <p>Para incluir o cabeçalho após a linha <strong>1</strong> e incluir o rodapé após a <strong>última</strong> linha.</p>
 
   <p>(*) a explicação do porquê das opções <strong><code>-e</code></strong> está no tópico <a href="#aplicar-varios-comandos">Aplicando vários comandos de uma vez</a>.</p>
 
-  <h4>7.42. Gravando arquivos</h4>
+  <h4>7.4.2 Gravando arquivos</h4>
 
   <p>O comando <strong><code>w</code></strong> grava num arquivo a linha atual, ou melhor, o conteúdo do <em>espaço padrão</em>. Por exemplo, você quer gravar num arquivo o resultado de uma busca por linhas que contêm a palavra <code>estorvo</code>. A solução não-Sed seria:</p>
 
-  <code>prompt$ grep 'estorvo' texto.txt &gt; estorvos.txt </code>
+  <pre>prompt$ grep 'estorvo' texto.txt &gt; estorvos.txt </pre>
 
   <p>Nosso similar em Sed seria:</p>
 
-  <code>prompt$ sed '/estorvo/w estorvos.txt' texto.txt </code>
+  <pre>prompt$ sed '/estorvo/w estorvos.txt' texto.txt </pre>
 
   <p>Gravar dados num arquivo também pode servir de <strong>espaço auxiliar</strong> caso o <em>espaço reserva</em> não seja suficiente. Mas esta é uma opção drástica, não tão flexível. Mais informações sobre o <em>espaço reserva</em> no tópico <a href="#registradores-internos">Conhecendo os registradores internos</a>.</p>
 
@@ -784,37 +786,37 @@ prompt$ /g' texto.txt
 texto, como um parágrafo inteiro por exemplo, por outro trecho, 
 independente do número de linhas de ambos.</p>
 
-  <h4>7.51. Trocar várias linhas por uma</h4>
+  <h4>7.5.1 Trocar várias linhas por uma</h4>
 
   <p>Essa é simples, basta usar o comando <strong><code>c</code></strong>, que "Coloca" um texto no lugar da linha atual. A única complicação é definir o <em>endereço</em>,
  para aplicar o comando apenas nas linhas desejadas. Por exemplo, vamos 
 colocar uma frase no lugar de uma área de texto pré-formatado num 
 documento HTML. Esta área é delimitada pelos identificadores <strong><code>&lt;pre&gt;</code></strong> e <strong><code>&lt;/pre&gt;</code></strong>:</p>
 
-  <code>
+  <pre>
 prompt$ sed '/&lt;pre&gt;/,/&lt;\/pre&gt;/c \
 prompt$ aqui tinha texto pré-formatado' texto.html
-</code>
+</pre>
 
   <p>Note que o comando <strong><code>c</code></strong> (assim como o <strong><code>a</code></strong> e o <strong><code>i</code></strong>) <strong>exige</strong> que o texto que ele recebe como parâmetro esteja na linha seguinte, estando a quebra de linha escapada com a barra invertida <strong><code>\</code></strong></p>
 
   <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.0a</strong>(*), é permitido que se coloque o texto na mesma linha:</p>
 
-  <code>prompt$ sed '/&lt;pre&gt;/,/&lt;\/pre&gt;/c aqui tinha texto pré-formatado' texto.html </code>
+  <pre>prompt$ sed '/&lt;pre&gt;/,/&lt;\/pre&gt;/c aqui tinha texto pré-formatado' texto.html </pre>
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
-  <h4>7.52. Trocar várias linhas por outras</h4>
+  <h4>7.5.2 Trocar várias linhas por outras</h4>
 
   <p>Similarmente a trocar por apenas uma linha, pode-se usar o comando <strong><code>c</code></strong> e passar várias linhas para ele. O único detalhe é que todas as linhas devem ser <strong>escapadas</strong> no final, menos a última:</p>
 
-  <code>
+  <pre>
 prompt$ sed '/&lt;pre&gt;/,/&lt;\/pre&gt;/c \
 prompt$ aqui tinha texto pré-formatado,\
 prompt$ mas eu resolvi tirar.\
 prompt$ porque?\
 prompt$ porque sim' texto.html
-</code>
+</pre>
 
   <p>É claro, quando o comando começa a ficar grande desse jeito, é 
 melhor colocá-lo num arquivo. Saiba mais detalhes sobre isso no tópico <a href="#comandos-em-arquivo">Colocando comandos sed num arquivo</a>.</p>
@@ -898,7 +900,7 @@ por um <em>tail -f</em>.</p>
 
   <p>Um exemplo prático seria mostrar apenas as mensagens do sistema relativas às conexões <em>ssh</em>:</p>
 
-  <code>prompt$ tail -f /var/log/messages | sed -nu '/sshd/p' </code>
+  <pre>prompt$ tail -f /var/log/messages | sed -nu '/sshd/p' </pre>
 
   <p>Cuidado com -nu perto de crianças! :)</p>
 
@@ -910,7 +912,7 @@ por um <em>tail -f</em>.</p>
 
   <p>Você pode espalhar os comandos por várias linhas, trocando o <strong><code>;</code></strong> por quebras de linha e colocar <strong>comentários</strong> precedidos de <strong><code>#</code></strong>. O exemplo de apagar linhas ficaria:</p>
 
-  <code>
+  <pre>
 # programa.sed: apaga algumas linhas
 
 # apaga a 5ª linha
@@ -921,13 +923,13 @@ por um <em>tail -f</em>.</p>
 
 # apaga as linhas que contêm 'estorvo'
 /estorvo/d
-</code>
+</pre>
 
   <p>Para dizer ao <em>Sed</em> para utilizar aquele arquivo como fonte de comandos, basta usar a opção <strong><code>-f</code></strong></p>
 
-  <code>
+  <pre>
 prompt$ sed -f programa.sed texto.txt
-</code>
+</pre>
 
   <h3 id="arquivos-executaveis">8.3 Tornando arquivos Sed executáveis</h3>
 
@@ -935,32 +937,32 @@ prompt$ sed -f programa.sed texto.txt
 
   <p>Se um arquivo é um programinha em <em>shell</em>, basta colocar</p>
 
-  <code>
+  <pre>
 #!/bin/sh
-</code>
+</pre>
 
   <p>Na primeira linha para que o <em>bash</em> saiba que deve executá-lo com o comando <code>/bin/sh</code>. O mesmo funciona para qualquer outro interpretador, como o <em>Sed</em>. então para tornar um arquivos de comandos <em>Sed</em> executável basta colocar como primeira linha:</p>
 
-  <code>
+  <pre>
 #!/bin/sed -f
-</code>
+</pre>
 
   <p>E é claro, torná-lo executável:</p>
 
-  <code>
+  <pre>
 prompt$ chmod +x programa.sed
-</code>
+</pre>
 
   <p>E na linha de comando, chame-o normalmente:</p>
 
-  <code>
+  <pre>
 prompt$ ./programa.sed texto.txt
 prompt$ cat texto.txt | ./programa.sed
-</code>
+</pre>
 
   <h3 id="registradores-internos">8.4 Conhecendo os registradores internos</h3>
 
-  <h4>8.41. Apresentação</h4>
+  <h4>8.4.1 Apresentação</h4>
 
   <p>O <em>Sed</em> possui 2 registradores ("buffers") internos, que são usados para a manipulação do texto.</p>
 
@@ -973,57 +975,57 @@ cópia da linha original, parte dela, ou agrupar dados diversos de várias
 
   <p>Há comandos para fazer a troca de dados entre os dois registradores:</p>
 
-  <code>
-h      guarda no espaço reserva
+  <pre>
+  h      guarda no espaço reserva
   H      guarda (anexando) no espaço reserva
 
   g      pega o conteúdo do espaço reserva
   G      pega (anexando) o conteúdo do espaço reserva
 
   x      troca os conteúdos dos 2 registradores
-</code>
+</pre>
 
   <p>O <em>anexando</em> acima significa "não sobrescreve o conteúdo original", ou seja, ele mantém o que já tem, e adiciona um <strong><code>\n</code></strong> (quebra de linha), seguido do texto manipulado. Para entender melhor, veja o exemplo gráfico a seguir.</p>
 
-  <h4>8.42. Exemplo</h4>
+  <h4>8.4.2 Exemplo</h4>
 
   <p>Um exemplo didático de uso do <em>espaço reserva</em> é ir guardando nele algumas linhas do texto e mostrá-las depois no final do arquivo:</p>
 
-  <code>prompt$ sed '/root/H;$g' /etc/passwd </code>
+  <pre>prompt$ sed '/root/H;$g' /etc/passwd </pre>
 
   <p>Ou seja, adicione no <em>espaço reserva</em> (comando <strong><code>H</code></strong>), as linhas que contêm a palavra <code>root</code> e na última linha do arquivo (endereço <strong><code>$</code></strong>), recupere o conteúdo do <em>espaço reserva</em> (comando <strong><code>g</code></strong>).</p>
 
-  <h4>8.43. Exemplo gráfico</h4>
+  <h4>8.4.3 Exemplo gráfico</h4>
 
   <p>Como os registradores são a parte mais <strong>obscura</strong> do <em>Sed</em> (mais por falta de documentação do que por complexidade), merecem uma explicação <strong>bem</strong> didática. Vamos lá.</p>
 
   <p>Temos os dois registradores vazios: (que daqui pra frente serão chamados apenas de <em>padrão</em> e <em>reserva</em>)</p>
 
-  <code>
+  <pre>
 __________________                __________________
      |                  |              |                  |
      |                  |              |                  |
      |__________________|              |__________________|
         espaço padrão                     espaço reserva
-</code>
+</pre>
 
   <p>E um arquivo hipotético com o conteúdo: (não são odiosos estes exemplos com frutas?)</p>
 
-  <code>
+  <pre>
 laranja
 uva
 abacaxi
 melancia
 mimosa
-</code>
+</pre>
 
   <p>E aplicaremos o comando:</p>
 
-  <code>sed '/laranja/h ; /uva/g ; /abacaxi/H ; /melancia/G ; /mimosa/x' </code>
+  <pre>sed '/laranja/h ; /uva/g ; /abacaxi/H ; /melancia/G ; /mimosa/x' </pre>
 
   <p>Obtendo como resultado:</p>
 
-  <code>
+  <pre>
 laranja
 laranja
 abacaxi
@@ -1032,91 +1034,91 @@ laranja
 abacaxi
 laranja
 abacaxi
-</code>
+</pre>
 
   <p>Vejamos o que aconteceu. Lida a primeira linha <code>laranja</code>, ela é imediatamente colocada no <em>padrão</em> para ser manipulada:</p>
 
-  <code>
+  <pre>
 __________________                __________________
      |                  |              |                  |
      |      laranja     |              |                  |
      |__________________|              |__________________|
         espaço padrão                     espaço reserva
-</code>
+</pre>
 
   <p>O comando direcionado a ela é o <strong><code>h</code></strong>, que guarda uma cópia dela no <em>reserva</em>:</p>
 
-  <code>
+  <pre>
 __________________                __________________
      |                  |              |                  |
      |      laranja     |   -- h --&gt;   |      laranja     |
      |__________________|              |__________________|
         espaço padrão                     espaço reserva
-</code>
+</pre>
 
   <p>Como mais nenhum comando é relativo à linha <code>laranja</code>, o <em>Sed</em> dá por encerrado o processamento dessa linha e imprime o conteúdo do <em>padrão</em> na saída: "laranja".</p>
 
   <p>Beleza, agora ele vai processar a segunda linha, novamente a primeira coisa é colocá-la no <em>padrão</em>, sobrescrevendo o que tinha antes:</p>
 
-  <code>
+  <pre>
 __________________                __________________
      |                  |              |                  |
      |        uva       |              |      laranja     |
      |__________________|              |__________________|
         espaço padrão                     espaço reserva
-</code>
+</pre>
 
   <p>O <em>reserva</em>, enquanto nenhum outro comando escrever nele, permanecerá o mesmo. O comando direcionado à linha <code>uva</code> é o <strong><code>g</code></strong>, que pega o conteúdo do <em>reserva</em> e o coloca no <em>padrão</em>, apagando o que estiver nele (neste caso: <code>uva</code>):</p>
 
-  <code>
+  <pre>
 __________________                __________________
      |                  |              |                  |
      |      laranja     |   &lt;-- g --   |      laranja     |
      |__________________|              |__________________|
         espaço padrão                     espaço reserva
-</code>
+</pre>
 
   <p>Novamente, não há mais comandos a ser executados, então imprime na saída o conteúdo do <em>padrão</em>: "laranja".</p>
 
   <p>Indo para a terceira linha e colocando-a no <em>padrão</em>:</p>
 
-  <code>
+  <pre>
 __________________                __________________
      |                  |              |                  |
      |      abacaxi     |              |      laranja     |
      |__________________|              |__________________|
         espaço padrão                     espaço reserva
-</code>
+</pre>
 
   <p>O comando dessa linha é o <strong><code>H</code></strong>, que tal como o <strong><code>h</code></strong>, guarda o conteúdo do <em>padrão</em> no <em>reserva</em>, com diferença que ele preserva o conteúdo já existente dele, separando com um <strong><code>\n</code></strong>:</p>
 
-  <code>
+  <pre>
 __________________                __________________
      |                  |              |                  |
      |      abacaxi     |   -- H --&gt;   | laranja\nabacaxi |
      |__________________|              |__________________|
         espaço padrão                     espaço reserva
-</code>
+</pre>
 
   <p>Novamente, chegou ao fim, imprime o <em>padrão</em>: "abacaxi". a próxima linha é a da <code>melancia</code>:</p>
 
-  <code>
+  <pre>
 __________________                __________________
      |                  |              |                  |
      |     melancia     |              | laranja\nabacaxi |
      |__________________|              |__________________|
         espaço padrão                     espaço reserva
-</code>
+</pre>
 
   <p>E agora vai ficar divertido, aplicando o comando <strong><code>G</code></strong>, que pega o conteúdo do <em>reserva</em> e anexa ao <em>padrão</em>:</p>
 
-  <code>
+  <pre>
 ____________________________           __________________
 |                            |         |                  |
 | melancia\nlaranja\nabacaxi |  &lt;-G--  | laranja\nabacaxi |
 |____________________________|         |__________________|
         espaço padrão                    espaço reserva
-</code>
+</pre>
 
   <p>E a saída agora fica "melancia\nlaranja\nabacaxi", com o detalhe que o <em>Sed</em> troca estes <strong><code>\n</code></strong>
  por quebras de linha na impressão. Então são 3 linhas na saída. Vá 
@@ -1125,29 +1127,29 @@ cima.</p>
 
   <p>E finalmente, a última linha:</p>
 
-  <code>
+  <pre>
 __________________                __________________
      |                  |              |                  |
      |      mimosa      |              | laranja\nabacaxi |
      |__________________|              |__________________|
         espaço padrão                     espaço reserva
-</code>
+</pre>
 
   <p>E para ela, o comando que troca o conteúdo dos 2 registradores, o <strong><code>x</code></strong>:</p>
 
-  <code>
+  <pre>
 __________________                __________________
      |                  |              |                  |
      | laranja\nabacaxi |  &lt;-- x ---&gt;  |      mimosa      |
      |__________________|              |__________________|
         espaço padrão                     espaço reserva
-</code>
+</pre>
 
   <p>E mostra na saída o <em>padrão</em>, com duas linhas: "laranja" e "abacaxi".</p>
 
   <p>Ufa! Depois dessa não venha me dizer que não sabe como funcionam os <em>registradores internos</em> do <em>Sed</em> ;)</p>
 
-  <h4>8.44. Resumão</h4>
+  <h4>8.4.4 Resumão</h4>
 
   <ul>
     <li>Cada linha nova lida é colocada (sobrescrevendo) no <em>espaço padrão</em></li>
@@ -1157,7 +1159,7 @@ __________________                __________________
     <li>Registradores são simples! ;)</li>
   </ul>
 
-  <h4>8.45. Fluxograma</h4>
+  <h4>8.4.5 Fluxograma</h4>
 
   <p>Para uma representação gráfica dos fluxos e comandos que manipulam estes registradores, veja o tópico <a href="#fluxo-registradores">Fluxos dos registradores internos</a>.</p>
 	</section>
@@ -1166,7 +1168,7 @@ __________________                __________________
 
   <h3 id="fluxo-texto">9.1 Fluxos do texto</h3>
 
-  <code>
+  <pre>
 _________
                             w    |         |   r
                         +-------&gt;| ARQUIVO |-------&gt;
@@ -1180,11 +1182,11 @@ ENTRADA  -------&gt;|    S E D    |-------------------&gt;
                         +-------&gt; /dev/null
                             D
 
-</code>
+</pre>
 
   <h3 id="fluxo-execucao">9.2 Fluxos da execução dos comandos</h3>
 
-  <code>
+  <pre>
 _________
           |         |
     ______| próxima |&lt;---+
@@ -1205,23 +1207,23 @@ COMEÇO   ---------&gt;|  COMANDOS  |----------&gt; FIM DO PROGRAMA
                          |__________|
 
 
-</code>
+</pre>
 
   <h3 id="fluxo-registradores">9.3 Fluxos dos registradores internos</h3>
 
-  <code>
+  <pre>
 _________________               __________________
 |                 |---- h H ---&gt;|                  |
 |  ESPAÇO PADRÃO  |&lt;---  x  ---&gt;|  ESPAÇO RESERVA  |
 |_________________|&lt;--- g G ----|__________________|
 
 
-</code>
+</pre>
 
   <p>Veja explicação sobre estes registradores no tópico <a href="#registradores-internos">Conhecendo os registradores internos</a>.</p>
 	</section>
 	<section>
-  <h2 id="gnu">10. Nota sobre os adicionais GNU</h2>
+  <h2 id="gnu">10 Nota sobre os adicionais GNU</h2>
 
   <p>O <em>Sed</em> da GNU, atualmente é o utilizado pela maioria das distribuições de Linux e é o que tem mais funcionalidades novas.</p>
 
