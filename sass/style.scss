@@ -1,6 +1,5 @@
 // Imports
 @import 'imports/open-color.scss';
-//@import 'imports/reset.scss';
 
 // Variáveis
 // Cores
@@ -22,7 +21,7 @@ $smallSpacer: $baseSpacer / 2;
 @mixin bottom-line() {
 	padding-bottom: $smallSpacer;
 	margin-bottom: $baseSpacer;
-	border-bottom: solid 1px $oc-gray-9;
+	border-bottom: solid 1px $oc-gray-6;
 }
 
 //Regras
@@ -124,6 +123,27 @@ article ul {
 	line-height: 1.2rem;
 	li {
 		margin-bottom: $smallSpacer / 2;
+	}
+}
+//tabelas
+table {
+	width: 100%;
+	border-collapse: collapse;
+	tr {
+		* {
+			padding: $smallSpacer / 2 $smallSpacer $smallSpacer / 2;
+			text-align: left;
+		}
+	}
+	thead {
+		background: $oc-gray-3;
+	}
+	tbody {
+		tr:nth-child(2n) {
+			* {
+				background: $oc-gray-1;
+			}
+		}
 	}
 }
 
