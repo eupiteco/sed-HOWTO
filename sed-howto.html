@@ -13,96 +13,98 @@
     <p>Versão 0.6 - junho/2009</p>
 		<p>Escrito por <a href="http://aurelio.net/">Aurelio Marinho Jargas</a>, CSS por <a   href="https://github.com/eupiteco">Lucas Piteco</a>. Documento original em <a   href="http://aurelio.net/sed/sed-howto/">aqui</a>.</p>
   </header>
-  <nav>
-    <ol>
-      <li>
-        <a href="#sobre">Sobre este documento</a>
-        <ul>
-          <li>1.1. <a href="#descricao">Descrição</a></li>
-          <li>1.2. <a href="#anuncio">Anúncio</a></li>
-          <li>1.3. <a href="#onde-encontrar">Onde encontrá-lo</a></li>
-          <li>1.4. <a href="#changelog">Registro de mudanças</a></li>
-          <li>1.5. <a href="#agradecimentos">Agradecimentos</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#conhecendo-o-sed">Conhecendo o sed</a>
-        <ul>
-          <li>2.1. <a href="#descricao-do-sed">Descrição do Sed</a></li>
-          <li>2.2. <a href="#significado">O que significa a palavra Sed</a></li>
-          <li>2.3. <a href="#devo-usar-o-sed">Como saber se devo usar o Sed</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#perdendo-o-medo">Perdendo o medo do sed</a>
-        <ul>
-          <li>3.1. <a href="#como-funciona">Como ele funciona</a></li>
-          <li>3.2. <a href="#sintaxe">Sua sintaxe</a></li>
-          <li>3.3. <a href="#como-executar">Como executá-lo</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#comandos">Os comandos do sed</a>
-        <ul>
-          <li>4.1. <a href="#descricao-dos-comandos">Descrição de todos os comandos</a></li>
-          <li>4.2. <a href="#lista-dos-comandos">Lista de todos os comandos por categoria</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#conceitos-basicos">Conceitos básicos</a>
-        <ul>
-          <li>5.1. <a href="#suprimir-saida-padrao">Suprimindo a saída padrão</a></li>
-          <li>5.2. <a href="#endereco">O endereço</a></li>
-          <li>5.3. <a href="#interromper-processamento">Interrompendo o processamento</a></li>
-          <li>5.4. <a href="#inverter-logica">Invertendo a lógica</a></li>
-          <li>5.5. <a href="#aplicar-varios-comandos">Aplicando vários comandos de uma vez</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#conceitos-complementares">Conceitos complementares</a>
-        <ul>
-          <li>6.1. <a href="#sed-e-shell">Sed e shell</a></li>
-          <li>6.2. <a href="#outros-delimitadores">Usando outros delimitadores</a></li>
-          <li>6.3. <a href="#caracteres-especiais">Escapes para caracteres especiais</a></li>
-          <li>6.4. <a href="#resultado-mesmo-arquivo">Gravando o resultado no mesmo arquivo</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#tarefas-diversas">Tarefas diversas</a>
-        <ul>
-          <li>7.1. <a href="#substituir-por-quebra-de-linha">Como substituir alguma coisa por uma quebra de linha</a></li>
-          <li>7.2. <a href="#apagar-linhas-especificas">Apagando linhas específicas</a></li>
-          <li>7.3. <a href="#ignorar-maiusculas-e-minusculas">Como ignorar maiúsculas e minúsculas</a></li>
-          <li>7.4. <a href="#ler-e-gravar-arquivos-externos">Lendo e gravando em arquivos externos</a></li>
-          <li>7.5. <a href="#trocar-um-trecho-por-outro">Trocando um trecho de texto por outro</a></li>
-          <li>7.6. <a href="#emular-outros-comandos">Emulando outros comandos</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#conceitos-avancados">Conceitos avançados</a>
-        <ul>
-          <li>8.1. <a href="#monitorar-um-arquivo">Monitorando um arquivo</a></li>
-          <li>8.2. <a href="#comandos-em-arquivo">Colocando comandos Sed num arquivo</a></li>
-          <li>8.3. <a href="#arquivos-executaveis">Tornando arquivos Sed executáveis</a></li>
-          <li>8.4. <a href="#registradores-internos">Conhecendo os registradores internos</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#fluxogramas">Fluxogramas</a>
-        <ul>
-          <li>9.1. <a href="#fluxo-texto">Fluxos do texto</a></li>
-          <li>9.2. <a href="#fluxo-execucao">Fluxos da execução dos comandos</a></li>
-          <li>9.3. <a href="#fluxo-registradores">Fluxos dos registradores internos</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#gnu">Nota sobre os adicionais GNU</a>
-      </li>
-      <li>
-        <a href="#mais-informacoes">Onde obter mais informações</a>
-      </li>
-    </ol>
-  </nav>
+	<aside>
+		<nav>
+			<ol>
+				<li>
+					<a href="#sobre">Sobre este documento</a>
+					<ul>
+						<li>1.1. <a href="#descricao">Descrição</a></li>
+						<li>1.2. <a href="#anuncio">Anúncio</a></li>
+						<li>1.3. <a href="#onde-encontrar">Onde encontrá-lo</a></li>
+						<li>1.4. <a href="#changelog">Registro de mudanças</a></li>
+						<li>1.5. <a href="#agradecimentos">Agradecimentos</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#conhecendo-o-sed">Conhecendo o sed</a>
+					<ul>
+						<li>2.1. <a href="#descricao-do-sed">Descrição do Sed</a></li>
+						<li>2.2. <a href="#significado">O que significa a palavra Sed</a></li>
+						<li>2.3. <a href="#devo-usar-o-sed">Como saber se devo usar o Sed</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#perdendo-o-medo">Perdendo o medo do sed</a>
+					<ul>
+						<li>3.1. <a href="#como-funciona">Como ele funciona</a></li>
+						<li>3.2. <a href="#sintaxe">Sua sintaxe</a></li>
+						<li>3.3. <a href="#como-executar">Como executá-lo</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#comandos">Os comandos do sed</a>
+					<ul>
+						<li>4.1. <a href="#descricao-dos-comandos">Descrição de todos os comandos</a></li>
+						<li>4.2. <a href="#lista-dos-comandos">Lista de todos os comandos por categoria</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#conceitos-basicos">Conceitos básicos</a>
+					<ul>
+						<li>5.1. <a href="#suprimir-saida-padrao">Suprimindo a saída padrão</a></li>
+						<li>5.2. <a href="#endereco">O endereço</a></li>
+						<li>5.3. <a href="#interromper-processamento">Interrompendo o processamento</a></li>
+						<li>5.4. <a href="#inverter-logica">Invertendo a lógica</a></li>
+						<li>5.5. <a href="#aplicar-varios-comandos">Aplicando vários comandos de uma vez</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#conceitos-complementares">Conceitos complementares</a>
+					<ul>
+						<li>6.1. <a href="#sed-e-shell">Sed e shell</a></li>
+						<li>6.2. <a href="#outros-delimitadores">Usando outros delimitadores</a></li>
+						<li>6.3. <a href="#caracteres-especiais">Escapes para caracteres especiais</a></li>
+						<li>6.4. <a href="#resultado-mesmo-arquivo">Gravando o resultado no mesmo arquivo</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#tarefas-diversas">Tarefas diversas</a>
+					<ul>
+						<li>7.1. <a href="#substituir-por-quebra-de-linha">Como substituir alguma coisa por uma quebra de linha</a></li>
+						<li>7.2. <a href="#apagar-linhas-especificas">Apagando linhas específicas</a></li>
+						<li>7.3. <a href="#ignorar-maiusculas-e-minusculas">Como ignorar maiúsculas e minúsculas</a></li>
+						<li>7.4. <a href="#ler-e-gravar-arquivos-externos">Lendo e gravando em arquivos externos</a></li>
+						<li>7.5. <a href="#trocar-um-trecho-por-outro">Trocando um trecho de texto por outro</a></li>
+						<li>7.6. <a href="#emular-outros-comandos">Emulando outros comandos</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#conceitos-avancados">Conceitos avançados</a>
+					<ul>
+						<li>8.1. <a href="#monitorar-um-arquivo">Monitorando um arquivo</a></li>
+						<li>8.2. <a href="#comandos-em-arquivo">Colocando comandos Sed num arquivo</a></li>
+						<li>8.3. <a href="#arquivos-executaveis">Tornando arquivos Sed executáveis</a></li>
+						<li>8.4. <a href="#registradores-internos">Conhecendo os registradores internos</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#fluxogramas">Fluxogramas</a>
+					<ul>
+						<li>9.1. <a href="#fluxo-texto">Fluxos do texto</a></li>
+						<li>9.2. <a href="#fluxo-execucao">Fluxos da execução dos comandos</a></li>
+						<li>9.3. <a href="#fluxo-registradores">Fluxos dos registradores internos</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#gnu">Nota sobre os adicionais GNU</a>
+				</li>
+				<li>
+					<a href="#mais-informacoes">Onde obter mais informações</a>
+				</li>
+			</ol>
+		</nav>
+	</aside>
 	<article>
 	<section>
 		<h2 id="sobre">1. Sobre este documento</h2>

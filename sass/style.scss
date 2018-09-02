@@ -1,19 +1,98 @@
+// Imports
+@import 'imports/open-color.scss';
+@import 'imports/reset.scss';
+
+// Variáveis
+// Cores
+$main-color: $oc-lime-8;
+$bg-color: $oc-gray-0;
+$code-bg-color: $oc-gray-3;
+$link-color: $main-color;
+$text-color: $oc-gray-9;
+// Tipografia
+$baseFontSize: 1rem;
+$baseLineHeight: 1.5rem;
+//Diagramação
+$baseSpacer: 2rem;
+$smallSpacer: $baseSpacer / 2;
+
+
+// Mixins
+@mixin bottom-line() {
+	padding-bottom: $smallSpacer;
+	margin-bottom: $baseSpacer;
+	border-bottom: solid 1px $oc-gray-9;
+}
+
+//Regras
 body{
-	padding: 0 20px 0;
-	background-color: #eeeeee;
+	padding: $baseSpacer;
+	background-color: $bg-color;
 
 	font-family: sans-serif;
-	line-height: 1.2rem;
-	color: #333333;
+	font-size: $baseFontSize;
+	line-height: $baseLineHeight;
+	color: $text-color;
+}
+header {
+	@include bottom-line();
+}
+
+aside {
+	float: left;
+	width: 30%;
+}
+
+article {
+	float: left;
+	width: 60%;
+	margin-left: $baseSpacer;
+}
+
+section {
+	@include bottom-line();
 }
 
 a {
-	color: #88aa00;
+	color: $link-color;
 	text-decoration: none;
 }
 a:hover {
-	background-color: #88aa00;
-	color: #eeeeee;
+	background-color: $link-color;
+	color: $bg-color;
+}
+// tipografia
+// headers
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+}
+
+h1 {
+	font-size: $baseFontSize * 2;
+	line-height: $baseLineHeight * 2;
+	margin: $smallSpacer 0;
+}
+h2 {
+	margin: $smallSpacer / 2 0;
+	font-size: $baseFontSize * 1.7;
+	line-height: $baseLineHeight * 1.7;
+}
+h3 {
+	margin: $smallSpacer / 2 0;
+	font-size: $baseFontSize * 1.5;
+	line-height: $baseLineHeight * 1.5;
+}
+h4, h5, h6 {
+	font-size: $baseFontSize * 1.2;
+	line-height: $baseLineHeight * 1.2;
+}
+p {
+	margin: $smallSpacer 0;
+}
+
+code {
+	background-color: $code-bg-color;
+	padding: 3px 4px;
 }
 nav ol,
 nav ul {
@@ -21,6 +100,6 @@ nav ul {
 }
 
 .container {
-	max-width: 960px;
+	max-width: 1200px;
 	margin: 0 auto;
 }
