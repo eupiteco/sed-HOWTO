@@ -10,7 +10,7 @@
 	<div class="container">
   <header>
     <h1>Sed HOWTO estilizado</h1>
-    <p>Versão 0.6 - junho/2009</p>
+    <p>Versão 0.6- junho/2009</p>
 		<p>Escrito por <a href="http://aurelio.net/">Aurelio Marinho Jargas</a>, CSS por <a   href="https://github.com/eupiteco">Lucas Piteco</a>. Documento original em <a   href="http://aurelio.net/sed/sed-howto/">aqui</a>.</p>
   </header>
 	<aside>
@@ -19,81 +19,81 @@
 				<li>
 					<a href="#sobre">Sobre este documento</a>
 					<ul>
-						<li>1.1. <a href="#descricao">Descrição</a></li>
-						<li>1.2. <a href="#anuncio">Anúncio</a></li>
-						<li>1.3. <a href="#onde-encontrar">Onde encontrá-lo</a></li>
-						<li>1.4. <a href="#changelog">Registro de mudanças</a></li>
-						<li>1.5. <a href="#agradecimentos">Agradecimentos</a></li>
+						<li>1.1 <a href="#descricao">Descrição</a></li>
+						<li>1.2 <a href="#anuncio">Anúncio</a></li>
+						<li>1.3 <a href="#onde-encontrar">Onde encontrá-lo</a></li>
+						<li>1.4 <a href="#changelog">Registro de mudanças</a></li>
+						<li>1.5 <a href="#agradecimentos">Agradecimentos</a></li>
 					</ul>
 				</li>
 				<li>
 					<a href="#conhecendo-o-sed">Conhecendo o sed</a>
 					<ul>
-						<li>2.1. <a href="#descricao-do-sed">Descrição do Sed</a></li>
-						<li>2.2. <a href="#significado">O que significa a palavra Sed</a></li>
-						<li>2.3. <a href="#devo-usar-o-sed">Como saber se devo usar o Sed</a></li>
+						<li>2.1 <a href="#descricao-do-sed">Descrição do Sed</a></li>
+						<li>2.2 <a href="#significado">O que significa a palavra Sed</a></li>
+						<li>2.3 <a href="#devo-usar-o-sed">Como saber se devo usar o Sed</a></li>
 					</ul>
 				</li>
 				<li>
 					<a href="#perdendo-o-medo">Perdendo o medo do sed</a>
 					<ul>
-						<li>3.1. <a href="#como-funciona">Como ele funciona</a></li>
-						<li>3.2. <a href="#sintaxe">Sua sintaxe</a></li>
-						<li>3.3. <a href="#como-executar">Como executá-lo</a></li>
+						<li>3.1 <a href="#como-funciona">Como ele funciona</a></li>
+						<li>3.2 <a href="#sintaxe">Sua sintaxe</a></li>
+						<li>3.3 <a href="#como-executar">Como executá-lo</a></li>
 					</ul>
 				</li>
 				<li>
 					<a href="#comandos">Os comandos do sed</a>
 					<ul>
-						<li>4.1. <a href="#descricao-dos-comandos">Descrição de todos os comandos</a></li>
-						<li>4.2. <a href="#lista-dos-comandos">Lista de todos os comandos por categoria</a></li>
+						<li>4.1 <a href="#descricao-dos-comandos">Descrição de todos os comandos</a></li>
+						<li>4.2 <a href="#lista-dos-comandos">Lista de todos os comandos por categoria</a></li>
 					</ul>
 				</li>
 				<li>
 					<a href="#conceitos-basicos">Conceitos básicos</a>
 					<ul>
-						<li>5.1. <a href="#suprimir-saida-padrao">Suprimindo a saída padrão</a></li>
-						<li>5.2. <a href="#endereco">O endereço</a></li>
-						<li>5.3. <a href="#interromper-processamento">Interrompendo o processamento</a></li>
-						<li>5.4. <a href="#inverter-logica">Invertendo a lógica</a></li>
-						<li>5.5. <a href="#aplicar-varios-comandos">Aplicando vários comandos de uma vez</a></li>
+						<li>5.1 <a href="#suprimir-saida-padrao">Suprimindo a saída padrão</a></li>
+						<li>5.2 <a href="#endereco">O endereço</a></li>
+						<li>5.3 <a href="#interromper-processamento">Interrompendo o processamento</a></li>
+						<li>5.4 <a href="#inverter-logica">Invertendo a lógica</a></li>
+						<li>5.5 <a href="#aplicar-varios-comandos">Aplicando vários comandos de uma vez</a></li>
 					</ul>
 				</li>
 				<li>
 					<a href="#conceitos-complementares">Conceitos complementares</a>
 					<ul>
-						<li>6.1. <a href="#sed-e-shell">Sed e shell</a></li>
-						<li>6.2. <a href="#outros-delimitadores">Usando outros delimitadores</a></li>
-						<li>6.3. <a href="#caracteres-especiais">Escapes para caracteres especiais</a></li>
-						<li>6.4. <a href="#resultado-mesmo-arquivo">Gravando o resultado no mesmo arquivo</a></li>
+						<li>6.1 <a href="#sed-e-shell">Sed e shell</a></li>
+						<li>6.2 <a href="#outros-delimitadores">Usando outros delimitadores</a></li>
+						<li>6.3 <a href="#caracteres-especiais">Escapes para caracteres especiais</a></li>
+						<li>6.4 <a href="#resultado-mesmo-arquivo">Gravando o resultado no mesmo arquivo</a></li>
 					</ul>
 				</li>
 				<li>
 					<a href="#tarefas-diversas">Tarefas diversas</a>
 					<ul>
-						<li>7.1. <a href="#substituir-por-quebra-de-linha">Como substituir alguma coisa por uma quebra de linha</a></li>
-						<li>7.2. <a href="#apagar-linhas-especificas">Apagando linhas específicas</a></li>
-						<li>7.3. <a href="#ignorar-maiusculas-e-minusculas">Como ignorar maiúsculas e minúsculas</a></li>
-						<li>7.4. <a href="#ler-e-gravar-arquivos-externos">Lendo e gravando em arquivos externos</a></li>
-						<li>7.5. <a href="#trocar-um-trecho-por-outro">Trocando um trecho de texto por outro</a></li>
-						<li>7.6. <a href="#emular-outros-comandos">Emulando outros comandos</a></li>
+						<li>7.1 <a href="#substituir-por-quebra-de-linha">Como substituir alguma coisa por uma quebra de linha</a></li>
+						<li>7.2 <a href="#apagar-linhas-especificas">Apagando linhas específicas</a></li>
+						<li>7.3 <a href="#ignorar-maiusculas-e-minusculas">Como ignorar maiúsculas e minúsculas</a></li>
+						<li>7.4 <a href="#ler-e-gravar-arquivos-externos">Lendo e gravando em arquivos externos</a></li>
+						<li>7.5 <a href="#trocar-um-trecho-por-outro">Trocando um trecho de texto por outro</a></li>
+						<li>7.6 <a href="#emular-outros-comandos">Emulando outros comandos</a></li>
 					</ul>
 				</li>
 				<li>
 					<a href="#conceitos-avancados">Conceitos avançados</a>
 					<ul>
-						<li>8.1. <a href="#monitorar-um-arquivo">Monitorando um arquivo</a></li>
-						<li>8.2. <a href="#comandos-em-arquivo">Colocando comandos Sed num arquivo</a></li>
-						<li>8.3. <a href="#arquivos-executaveis">Tornando arquivos Sed executáveis</a></li>
-						<li>8.4. <a href="#registradores-internos">Conhecendo os registradores internos</a></li>
+						<li>8.1 <a href="#monitorar-um-arquivo">Monitorando um arquivo</a></li>
+						<li>8.2 <a href="#comandos-em-arquivo">Colocando comandos Sed num arquivo</a></li>
+						<li>8.3 <a href="#arquivos-executaveis">Tornando arquivos Sed executáveis</a></li>
+						<li>8.4 <a href="#registradores-internos">Conhecendo os registradores internos</a></li>
 					</ul>
 				</li>
 				<li>
 					<a href="#fluxogramas">Fluxogramas</a>
 					<ul>
-						<li>9.1. <a href="#fluxo-texto">Fluxos do texto</a></li>
-						<li>9.2. <a href="#fluxo-execucao">Fluxos da execução dos comandos</a></li>
-						<li>9.3. <a href="#fluxo-registradores">Fluxos dos registradores internos</a></li>
+						<li>9.1 <a href="#fluxo-texto">Fluxos do texto</a></li>
+						<li>9.2 <a href="#fluxo-execucao">Fluxos da execução dos comandos</a></li>
+						<li>9.3 <a href="#fluxo-registradores">Fluxos dos registradores internos</a></li>
 					</ul>
 				</li>
 				<li>
@@ -109,7 +109,7 @@
 	<section>
 		<h2 id="sobre">1. Sobre este documento</h2>
 
-		<h3 id="descricao">1.1. Descrição</h3>
+		<h3 id="descricao">1.1 Descrição</h3>
 
 		<p>Este documento se propõe a ser um <strong>tutorial</strong> e um <strong>guia de consulta</strong> de <em>Sed</em> ao mesmo tempo.</p>
 
@@ -126,7 +126,7 @@
 
 		<p>Este documento pode (deve) ser distribuído <strong>à vontade</strong>.</p>
 
-		<h3 id="anuncio">1.2. Anúncio</h3>
+		<h3 id="anuncio">1.2 Anúncio</h3>
 
 		<p>Este documento é algo que eu estava me devendo há séculos: uma documentação decente em português sobre o <em>Sed</em> e seus detalhes.</p>
 
@@ -142,7 +142,7 @@
 
 		<p>Com certeza, ainda tem <strong>MUITA</strong> coisa a melhorar/acrescentar. Qualquer sugestão é bem-vinda.</p>
 
-		<h3 id="onde-encontrar">1.3. Onde encontrá-lo</h3>
+		<h3 id="onde-encontrar">1.3 Onde encontrá-lo</h3>
 
 		<p>A casa oficial deste documento é na seção <em>Sed</em> do Site do Aurelio. Você pode consultá-lo <em>on-line</em> ou baixá-lo para leitura local:</p>
 
@@ -150,7 +150,7 @@
 			<li><a href="http://aurelio.net/sed/sed-HOWTO/">http://aurelio.net/sed/sed-HOWTO/</a></li>
 		</ul>
 
-		<h3 id="changelog">1.4. Registro de mudanças</h3>
+		<h3 id="changelog">1.4 Registro de mudanças</h3>
 
 		<dl>
 			<dt>2017</dt>
@@ -224,7 +224,7 @@
 			</dd>
 		</dl>
 
-		<h3 id="agradecimentos">1.5. Agradecimentos</h3>
+		<h3 id="agradecimentos">1.5 Agradecimentos</h3>
 
 		<p>Meus agradecimentos sinceros àqueles que comentaram, enviaram 
 	sugestões e correções, ou ajudaram na divulgação, via e-mail ou 
@@ -249,21 +249,21 @@
 
   <p>Vamos conhecer um pouco o <em>Sed</em>, mostrar que ele não é o bicho de <em>Sed</em> cabeças que aparenta :)</p>
 
-  <h3 id="descricao-do-sed">2.1. Descrição do Sed</h3>
+  <h3 id="descricao-do-sed">2.1 Descrição do Sed</h3>
 
   <p>O <em>Sed</em> é um editor de textos <strong>não interativo</strong>.</p>
 
   <p>Ele pode editar automaticamente, sem interação do usuário, vários arquivos seguindo um conjunto de regras especificadas.</p>
 
-  <h3 id="significado">2.2. O que significa a palavra Sed</h3>
+  <h3 id="significado">2.2 O que significa a palavra Sed</h3>
 
   <p>Vem do inglês "Stream EDitor", ou seja, editor de fluxos (de texto).</p>
 
-  <h3 id="devo-usar-o-sed">2.3. Como saber se devo usar o Sed</h3>
+  <h3 id="devo-usar-o-sed">2.3 Como saber se devo usar o Sed</h3>
 
   <p>Sendo um editor de textos não interativo, o <em>Sed</em> é excelente para desempenhar algumas tarefas, mas em outras seu uso não é aconselhado.</p>
 
-  <h4>2.3.1. Quando usar o Sed</h4>
+  <h4>2.31. Quando usar o Sed</h4>
 
   <p>A característica principal do <em>Sed</em> é poder editar arquivos automaticamente.</p>
 
@@ -284,7 +284,7 @@ veremos adiante) é até simples, bastando definir uma série de regras de
 procura e troca, e o programa se encarregará de executá-las e arrumar os
  relatórios.</p>
 
-  <h4>2.3.2. Quando não usar o Sed</h4>
+  <h4>2.32. Quando não usar o Sed</h4>
 
   <p><strong>Nenhuma</strong> ferramenta é ideal para todas as tarefas, e o <em>Sed</em> não é uma exceção à regra.</p>
 
@@ -305,7 +305,7 @@ operacional, entre outras limitações. Mas bem, ele é um <strong>manipulador d
 	<section>
   <h2 id="perdendo-o-medo">3. Perdendo o medo do sed</h2>
 
-  <h3 id="como-funciona">3.1. Como ele funciona</h3>
+  <h3 id="como-funciona">3.1 Como ele funciona</h3>
 
   <p>O <em>Sed</em> funciona como um filtro, por onde você passa um texto <code>X</code> e ele joga na saída um texto <code>Y</code>.</p>
 
@@ -325,7 +325,7 @@ na saída padrão (STDOUT). vai para a próxima linha e repete o processo.</li>
     <li>o <em>Sed</em> é macho :)</li>
   </ul>
 
-  <h3 id="sintaxe">3.2. Sua sintaxe</h3>
+  <h3 id="sintaxe">3.2 Sua sintaxe</h3>
 
   <p>A sintaxe genérica de um comando <em>Sed</em> é:</p>
 
@@ -335,7 +335,7 @@ na saída padrão (STDOUT). vai para a próxima linha e repete o processo.</li>
 
   <code>[endereço1 [, endereço2]] comando [argumento] </code>
 
-  <h4>3.2.1. Exemplo</h4>
+  <h4>3.21. Exemplo</h4>
 
   <p>Como notação tradicional, o que está <code>[entre colchetes]</code> é opcional, então a sintaxe <em>Sed</em> mais simples que existe é <code>sed regra</code> como em:</p>
 
@@ -343,7 +343,7 @@ na saída padrão (STDOUT). vai para a próxima linha e repete o processo.</li>
 
   <p>Ou seja, o <em>Sed</em> lendo da entrada padrão o conteúdo do arquivo <em>texto.txt</em> via duto <strong><code>|</code></strong>, aplica o comando <strong><code>p</code></strong> para todas as linhas do arquivo, ou seja, as duplica.</p>
 
-  <h4>3.2.2. Outros exemplos</h4>
+  <h4>3.22. Outros exemplos</h4>
 
   <p>Um outro exemplo do <em>Sed</em> com <code>opções</code> e recebendo um arquivo como parâmetro seria:</p>
 
@@ -355,7 +355,7 @@ na saída padrão (STDOUT). vai para a próxima linha e repete o processo.</li>
 
   <p>Ou seja, este comando imprime apenas a <strong>linha 5</strong> do <em>texto.txt</em></p>
 
-  <h3 id="como-executar">3.3. Como executá-lo</h3>
+  <h3 id="como-executar">3.3 Como executá-lo</h3>
 
   <p>A execução do <em>Sed</em> é igual a de outro aplicativo qualquer 
 de manipulação de texto, aceitando como parâmetro um nome de arquivo, ou
@@ -372,7 +372,7 @@ prompt$ sed 'p' &lt; texto.txt
 	<section>
   <h2 id="comandos">4. Os comandos do sed</h2>
 
-  <h3 id="descricao-dos-comandos">4.1. Descrição de todos os comandos</h3>
+  <h3 id="descricao-dos-comandos">4.1 Descrição de todos os comandos</h3>
 
   <code>prompt$ man sed prompt$ pinfo sed
 </code>
@@ -426,7 +426,7 @@ q       finaliza o Sed imediatamente
 
 </code>
 
-  <h3 id="lista-dos-comandos">4.2. Lista de todos os comandos por categoria</h3>
+  <h3 id="lista-dos-comandos">4.2 Lista de todos os comandos por categoria</h3>
 
   <code>                   informações = marcadores :
                    comentários #
@@ -447,9 +447,9 @@ q       finaliza o Sed imediatamente
 
   <p>Aqui vão conhecimentos que você <strong>precisa</strong> assimilar para fazer um bom uso do <em>Sed</em>.</p>
 
-  <h3 id="suprimir-saida-padrao">5.1. Suprimindo a saída padrão</h3>
+  <h3 id="suprimir-saida-padrao">5.1 Suprimindo a saída padrão</h3>
 
-  <h4>5.1.1. Saída normal</h4>
+  <h4>5.11. Saída normal</h4>
 
   <p>Normalmente o <em>Sed</em> sempre imprime na <strong>saída padrão</strong> todas as linhas do arquivo, modificadas ou não.</p>
 
@@ -459,7 +459,7 @@ q       finaliza o Sed imediatamente
 
   <p>O comando <strong><code>p</code></strong> imprime a linha na saída padrão. Este exemplo <strong>duplica</strong> todas as linhas do arquivo pois, além da impressão normal de cada linha, ainda é aplicado o comando <strong><code>p</code></strong> em cada uma, que diz "imprima esta linha", fazendo com que ela apareça duas vezes.</p>
 
-  <h4>5.1.2. Saída suprimida</h4>
+  <h4>5.12. Saída suprimida</h4>
 
   <p>Temos como modificar este comportamento com a opção <strong><code>-n</code></strong>, que significa "não imprima na saída, a não ser quando especificado com o comando <strong><code>p</code></strong> ou o <strong><code>l</code></strong>".</p>
 
@@ -473,13 +473,13 @@ q       finaliza o Sed imediatamente
 
   <p>Ok, a explicação daquele <strong>5</strong> ali perdido vem logo a seguir no tópico O endereço :)</p>
 
-  <h3 id="endereco">5.2. O endereço</h3>
+  <h3 id="endereco">5.2 O endereço</h3>
 
   <p>O endereço serve para você dizer ao <em>Sed</em> para aplicar um determinado comando <strong>apenas</strong> nas linhas informadas. Este endereço pode ser descrito direto como o <strong>número</strong> da linha, ou por <strong>parte</strong> de seu conteúdo (entre <code>/barras/</code>).</p>
 
   <p>Caso o endereço não seja informado, o comando <em>Sed</em> será aplicado para <strong>todas</strong> as linhas.</p>
 
-  <h4>5.2.1. Endereço simples</h4>
+  <h4>5.21. Endereço simples</h4>
 
   <p>Por exemplo, referenciando a linha pelo seu número, como já foi visto anteriormente:</p>
 
@@ -493,7 +493,7 @@ q       finaliza o Sed imediatamente
 
   <code>prompt$ grep -v estorvo texto.txt </code>
 
-  <h4>5.2.2. Intervalo</h4>
+  <h4>5.22. Intervalo</h4>
 
   <p>Como endereço, ainda se pode especificar um <strong>intervalo</strong>, como da linha 5 até a linha 10, ou da linha 5 até a linha que tiver a palavra <code>estorvo</code>:</p>
 
@@ -506,9 +506,9 @@ prompt$ sed '5,/estorvo/d' texto.txt
   <code>prompt$ sed '10,$d' texto.txt
 </code>
 
-  <h4>5.2.3. Outros</h4>
+  <h4>5.23. Outros</h4>
 
-  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.02a</strong>(*), foi adicionada uma maneira nova de especificar um endereço:</p>
+  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.0a</strong>(*), foi adicionada uma maneira nova de especificar um endereço:</p>
 
   <code>prompt$ sed '/estorvo/,+3d' texto.txt
 </code>
@@ -522,7 +522,7 @@ prompt$ sed '5,/estorvo/d' texto.txt
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
-  <h3 id="interromper-processamento">5.3. Interrompendo o processamento</h3>
+  <h3 id="interromper-processamento">5.3 Interrompendo o processamento</h3>
 
   <p>A qualquer hora você pode <strong>abortar</strong> o comando <em>Sed</em> com o comando <strong><code>q</code></strong>.</p>
 
@@ -537,7 +537,7 @@ e-mail, que são separados do corpo da mensagem por uma linha em branco:</p>
   <code>sed '/^$/q'       pare na primeira linha em branco que achar
 </code>
 
-  <h3 id="inverter-logica">5.4. Invertendo a lógica</h3>
+  <h3 id="inverter-logica">5.4 Invertendo a lógica</h3>
 
   <p>No <em>Sed</em> temos o modificador <strong><code>!</code></strong> que <strong>inverte</strong> a lógica do comando, ou seja <code>!comando</code> significa "não execute o comando". É meio estranho a primeira vista, mas você tem que começar a pensar como o <em>Sed</em>, e tudo se esclarece :)</p>
 
@@ -555,9 +555,9 @@ sed -n '11,$!p'   NÃO imprima da linha 11 até o final (ou seja, imprima as out
 
   <p>A dica é sempre complementar a leitura mental com o inverso (entre parênteses nos exemplos), ou seja, se o <em>Sed</em> NÃO vai aplicar um comando em determinadas linhas, isso quer dizer implicitamente que este comando <strong>será aplicado</strong> em todas as outras linhas. É estranho, mas acostuma :)</p>
 
-  <h3 id="aplicar-varios-comandos">5.5. Aplicando vários comandos de uma vez</h3>
+  <h3 id="aplicar-varios-comandos">5.5 Aplicando vários comandos de uma vez</h3>
 
-  <h4>5.5.1. Comandos normais</h4>
+  <h4>5.51. Comandos normais</h4>
 
   <p>É possível aplicar vários comandos <em>Sed</em>, em <strong>seqüência</strong>. Basta separá-los por ponto-e-vírgula.</p>
 
@@ -566,7 +566,7 @@ sed -n '11,$!p'   NÃO imprima da linha 11 até o final (ou seja, imprima as out
 
   <p>Este comando apaga as linhas 5, 10 e as que têm <code>estorvo</code> do arquivo <em>texto.txt</em>.</p>
 
-  <h4>5.5.2. Comandos com parâmetros</h4>
+  <h4>5.52. Comandos com parâmetros</h4>
 
   <p>Os comandos que recebem parâmetros (<strong><code>r</code></strong>, <strong><code>w</code></strong>, <strong><code>i</code></strong>, <strong><code>a</code></strong>, <strong><code>c</code></strong>), não aceitam o ponto-e-vírgula como separador, pois este pode ser parte integrante do parâmetro esperado.</p>
 
@@ -577,7 +577,7 @@ sed -n '11,$!p'   NÃO imprima da linha 11 até o final (ou seja, imprima as out
 
   <p>Este comando insere a frase <code>começo de tudo</code> antes da primeira linha e apaga a quinta linha do arquivo <em>texto.txt</em>.</p>
 
-  <h4>5.5.3. Terceira via</h4>
+  <h4>5.53. Terceira via</h4>
 
   <p>Outra maneira de especificar vários comandos (e a mais consistente e
  garantida) é colocá-los num arquivo, um por linha. Veja o tópico <a href="#comandos-em-arquivo">Colocando comandos Sed num arquivo</a>.</p>
@@ -587,7 +587,7 @@ sed -n '11,$!p'   NÃO imprima da linha 11 até o final (ou seja, imprima as out
 
   <p>Estes são conhecimentos que possivelmente surgirão como dúvidas em sua cabeça após utilizar o <em>Sed</em> por um tempo.</p>
 
-  <h3 id="sed-e-shell">6.1. Sed e shell</h3>
+  <h3 id="sed-e-shell">6.1 Sed e shell</h3>
 
   <p>Com o <em>Sed</em> sendo invocado na linha de comando, deve-se ter 
 alguns cuidados para evitar transtornos. O interpretador de comandos 
@@ -606,9 +606,9 @@ alguns caracteres especiais como <strong><code>$</code></strong>, <strong><code>
 se preocupar com aspas, coloque os comandos Sed num arquivo. Veja o 
 tópico <a href="#comandos-em-arquivo">Colocando comandos Sed num arquivo</a>.</p>
 
-  <h3 id="outros-delimitadores">6.2. Usando outros delimitadores</h3>
+  <h3 id="outros-delimitadores">6.2 Usando outros delimitadores</h3>
 
-  <h4>6.2.1. No comando s</h4>
+  <h4>6.21. No comando s</h4>
 
   <p>É comum ao fazer um comando de substituição <strong><code>s///</code></strong> conter uma <strong><code>/</code></strong> num dos dois lados do comando, como quando querendo substituir <code>/usr/local/bin</code> por <code>/usr/bin</code>.</p>
 
@@ -625,7 +625,7 @@ exemplo a vírgula:</p>
 
   <p>Evitando-se de ter que ficar escapando as barras. A mesma dica vale para o comando <strong><code>y</code></strong>.</p>
 
-  <h4>6.2.2. No endereço</h4>
+  <h4>6.22. No endereço</h4>
 
   <p>E se precisássemos apagar as linhas que contém o <code>/usr/local/bin</code>? Teríamos que colocar o nome do diretório no endereço do comando <strong><code>d</code></strong>, voltando com a festa dos escapes:</p>
 
@@ -639,9 +639,9 @@ exemplo a vírgula:</p>
  de acontecer, então se algo não está funcionando como deveria, olhe com
  cuidado para ver se não há conflitos entre eles.</p>
 
-  <h3 id="caracteres-especiais">6.3. Escapes para caracteres especiais</h3>
+  <h3 id="caracteres-especiais">6.3 Escapes para caracteres especiais</h3>
 
-  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.02.80</strong>(*), vários escapes novos foram adicionados e podem ser usados nas duas partes do comando <strong><code>s///</code></strong>:</p>
+  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.0.80</strong>(*), vários escapes novos foram adicionados e podem ser usados nas duas partes do comando <strong><code>s///</code></strong>:</p>
 
   <code>
 		\a      beep             (apito)
@@ -657,9 +657,9 @@ exemplo a vírgula:</p>
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
-  <h3 id="resultado-mesmo-arquivo">6.4. Gravando o resultado no mesmo arquivo</h3>
+  <h3 id="resultado-mesmo-arquivo">6.4 Gravando o resultado no mesmo arquivo</h3>
 
-  <h4>6.4.1. Problema inicial</h4>
+  <h4>6.41. Problema inicial</h4>
 
   <p>O procedimento comum quando se quer gravar num arquivo o resultado de um comando <em>Sed</em>, é o redirecionamento:</p>
 
@@ -673,7 +673,7 @@ exemplo a vírgula:</p>
 
   <p>Isso acontece porque ao fazer o redirecionamento <strong><code>&gt;</code></strong>, o <code>shell</code> abre imediatamente o arquivo referenciado, antes mesmo de começar a executar o comando <em>Sed</em>. E como este é um redirecionamento destrutivo <strong><code>&gt;</code></strong> e não incremental <strong><code>&gt;&gt;</code></strong>, se o arquivo já existir, ele será truncado, e seu conteúdo perdido. A essa altura, o <em>Sed</em> começará seu processamento já lendo um arquivo <em>texto.txt</em> vazio, e aplicados qualquer comandos <em>Sed</em> num arquivo vazio, o resultado será o próprio arquivo vazio.</p>
 
-  <h4>6.4.2. Solução genérica</h4>
+  <h4>6.42. Solução genérica</h4>
 
   <p>Para evitar isso, voltamos a primeira tática de gravar o resultado num outro arquivo, e depois o mais natural é <strong>mover</strong> o arquivo novo sobre o original:</p>
 
@@ -690,7 +690,7 @@ Ao mover o arquivo recém-criado, com os atributos padrão do sistema,
 sobre o original, este perderá seus atributos e ficará com os padrões do
  sistema, <strong>herdado</strong> do arquivo novo.</p>
 
-  <h4>6.4.3. Solução segura</h4>
+  <h4>6.43. Solução segura</h4>
 
   <p>Para evitar isso, a abordagem mais ortodoxa e segura seria aplicar o comando <em>Sed</em> numa cópia e gravar o resultado no arquivo original via redirecionamento:</p>
 
@@ -708,9 +708,9 @@ aplicável a qualquer outro comando do sistema que leia e grave arquivos.</p>
 	<section>
   <h2 id="tarefas-diversas">7. Tarefas diversas</h2>
 
-  <h3 id="substituir-por-quebra-de-linha">7.1. Como substituir alguma coisa por uma quebra de linha</h3>
+  <h3 id="substituir-por-quebra-de-linha">7.1 Como substituir alguma coisa por uma quebra de linha</h3>
 
-  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.02.80</strong>(*), foi adicionado o <strong><code>\n</code></strong> como escape válido dos dois lados do comando <strong><code>s///</code></strong>.
+  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.0.80</strong>(*), foi adicionado o <strong><code>\n</code></strong> como escape válido dos dois lados do comando <strong><code>s///</code></strong>.
  Com isso a tarefa de colocar cada palavra numa linha isolada, ou seja, 
 trocar espaços em branco por quebras de linha, fica trivial:</p>
 
@@ -730,13 +730,13 @@ prompt$ /g' texto.txt
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
-  <h3 id="apagar-linhas-especificas">7.2. Apagando linhas específicas</h3>
+  <h3 id="apagar-linhas-especificas">7.2 Apagando linhas específicas</h3>
 
   <p>O comando para apagar linhas é o <strong><code>d</code></strong>.</p>
 
   <p>O único detalhe nesta tarefa é especificar <strong>quais</strong> linhas você vai querer apagar. Isso está completamente coberto no tópico <a href="#endereco">O endereço</a>.</p>
 
-  <h3 id="ignorar-maiusculas-e-minusculas">7.3. Como ignorar maiúsculas e minúsculas</h3>
+  <h3 id="ignorar-maiusculas-e-minusculas">7.3 Como ignorar maiúsculas e minúsculas</h3>
 
   <p>O jeito padrão do <em>Sed</em> ser "ignore-case", é dizendo literalmente todas as possibilidades, como em:</p>
 
@@ -744,7 +744,7 @@ prompt$ /g' texto.txt
 
   <p>Para apagar todas as linhas que contêm a palavra <code>root</code>, <code>ROOT</code>, <code>RooT</code> etc.</p>
 
-  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.01-beta1</strong>(*), foi adicionado o modificador <strong><code>I</code></strong> no endereço e no comando <strong><code>s///</code></strong>, fazendo com que o comando acima fique mais simples:</p>
+  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.0-beta1</strong>(*), foi adicionado o modificador <strong><code>I</code></strong> no endereço e no comando <strong><code>s///</code></strong>, fazendo com que o comando acima fique mais simples:</p>
 
   <code>prompt$ sed '/root/Id' texto.txt </code>
 
@@ -754,9 +754,9 @@ prompt$ /g' texto.txt
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
-  <h3 id="ler-e-gravar-arquivos-externos">7.4. Lendo e gravando em arquivos externos</h3>
+  <h3 id="ler-e-gravar-arquivos-externos">7.4 Lendo e gravando em arquivos externos</h3>
 
-  <h4>7.4.1. Lendo arquivos</h4>
+  <h4>7.41. Lendo arquivos</h4>
 
   <p>Uma tarefa comum é incluir cabeçalho e rodapé num arquivo qualquer. O <em>Sed</em> possui um comando específico para ler arquivos, o <strong><code>r</code></strong>, então basta(*):</p>
 
@@ -766,7 +766,7 @@ prompt$ /g' texto.txt
 
   <p>(*) a explicação do porquê das opções <strong><code>-e</code></strong> está no tópico <a href="#aplicar-varios-comandos">Aplicando vários comandos de uma vez</a>.</p>
 
-  <h4>7.4.2. Gravando arquivos</h4>
+  <h4>7.42. Gravando arquivos</h4>
 
   <p>O comando <strong><code>w</code></strong> grava num arquivo a linha atual, ou melhor, o conteúdo do <em>espaço padrão</em>. Por exemplo, você quer gravar num arquivo o resultado de uma busca por linhas que contêm a palavra <code>estorvo</code>. A solução não-Sed seria:</p>
 
@@ -778,13 +778,13 @@ prompt$ /g' texto.txt
 
   <p>Gravar dados num arquivo também pode servir de <strong>espaço auxiliar</strong> caso o <em>espaço reserva</em> não seja suficiente. Mas esta é uma opção drástica, não tão flexível. Mais informações sobre o <em>espaço reserva</em> no tópico <a href="#registradores-internos">Conhecendo os registradores internos</a>.</p>
 
-  <h3 id="trocar-um-trecho-por-outro">7.5. Trocando um trecho de texto por outro</h3>
+  <h3 id="trocar-um-trecho-por-outro">7.5 Trocando um trecho de texto por outro</h3>
 
   <p>Uma tarefa que parece simples mas confunde, é trocar um trecho de 
 texto, como um parágrafo inteiro por exemplo, por outro trecho, 
 independente do número de linhas de ambos.</p>
 
-  <h4>7.5.1. Trocar várias linhas por uma</h4>
+  <h4>7.51. Trocar várias linhas por uma</h4>
 
   <p>Essa é simples, basta usar o comando <strong><code>c</code></strong>, que "Coloca" um texto no lugar da linha atual. A única complicação é definir o <em>endereço</em>,
  para aplicar o comando apenas nas linhas desejadas. Por exemplo, vamos 
@@ -798,13 +798,13 @@ prompt$ aqui tinha texto pré-formatado' texto.html
 
   <p>Note que o comando <strong><code>c</code></strong> (assim como o <strong><code>a</code></strong> e o <strong><code>i</code></strong>) <strong>exige</strong> que o texto que ele recebe como parâmetro esteja na linha seguinte, estando a quebra de linha escapada com a barra invertida <strong><code>\</code></strong></p>
 
-  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.02a</strong>(*), é permitido que se coloque o texto na mesma linha:</p>
+  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.0a</strong>(*), é permitido que se coloque o texto na mesma linha:</p>
 
   <code>prompt$ sed '/&lt;pre&gt;/,/&lt;\/pre&gt;/c aqui tinha texto pré-formatado' texto.html </code>
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
-  <h4>7.5.2. Trocar várias linhas por outras</h4>
+  <h4>7.52. Trocar várias linhas por outras</h4>
 
   <p>Similarmente a trocar por apenas uma linha, pode-se usar o comando <strong><code>c</code></strong> e passar várias linhas para ele. O único detalhe é que todas as linhas devem ser <strong>escapadas</strong> no final, menos a última:</p>
 
@@ -838,7 +838,7 @@ saiba o que é <em>Sed</em>, pois será apenas um texto normal.</p>
 
   <p><strong>obs.:</strong> talvez o <code>&lt;pre&gt;&lt;/pre&gt;</code> não seja um exemplo dos mais didáticos, mas não me veio algo mais comum à mente...</p>
 
-  <h3 id="emular-outros-comandos">7.6. Emulando outros comandos</h3>
+  <h3 id="emular-outros-comandos">7.6 Emulando outros comandos</h3>
 
   <p>Aqui vão alguns exemplos de emulações de outros comandos usando-se o <em>Sed</em>:</p>
 
@@ -888,9 +888,9 @@ saiba o que é <em>Sed</em>, pois será apenas um texto normal.</p>
 
   <p>Estes são conhecimentos necessários àqueles que fazem uso intensivo do <em>Sed</em>, fazendo programas grandes e/ou complexos.</p>
 
-  <h3 id="monitorar-um-arquivo">8.1. Monitorando um arquivo</h3>
+  <h3 id="monitorar-um-arquivo">8.1 Monitorando um arquivo</h3>
 
-  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.02.80</strong>(*),
+  <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.0.80</strong>(*),
  foi adicionada a opção -u, que significa "unbuffered", ou seja, faz um 
 uso minimalista dos registradores, mostrando a saída o mais rápido 
 possível, tornando possível editar um fluxo interminável como o gerado 
@@ -904,7 +904,7 @@ por um <em>tail -f</em>.</p>
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
-  <h3 id="comandos-em-arquivo">8.2. Colocando comandos Sed num arquivo</h3>
+  <h3 id="comandos-em-arquivo">8.2 Colocando comandos Sed num arquivo</h3>
 
   <p>Como os comandos <em>Sed</em> vão ficando extensos e complicados, é conveniente colocá-los <strong>num arquivo</strong>, com estruturação e comentários.</p>
 
@@ -929,7 +929,7 @@ por um <em>tail -f</em>.</p>
 prompt$ sed -f programa.sed texto.txt
 </code>
 
-  <h3 id="arquivos-executaveis">8.3. Tornando arquivos Sed executáveis</h3>
+  <h3 id="arquivos-executaveis">8.3 Tornando arquivos Sed executáveis</h3>
 
   <p>O interpretador de comandos mais utilizado (<em>bash</em>) sempre procura na <strong>primeira</strong> linha de um arquivo instruções para executá-lo.</p>
 
@@ -958,9 +958,9 @@ prompt$ ./programa.sed texto.txt
 prompt$ cat texto.txt | ./programa.sed
 </code>
 
-  <h3 id="registradores-internos">8.4. Conhecendo os registradores internos</h3>
+  <h3 id="registradores-internos">8.4 Conhecendo os registradores internos</h3>
 
-  <h4>8.4.1. Apresentação</h4>
+  <h4>8.41. Apresentação</h4>
 
   <p>O <em>Sed</em> possui 2 registradores ("buffers") internos, que são usados para a manipulação do texto.</p>
 
@@ -985,7 +985,7 @@ h      guarda no espaço reserva
 
   <p>O <em>anexando</em> acima significa "não sobrescreve o conteúdo original", ou seja, ele mantém o que já tem, e adiciona um <strong><code>\n</code></strong> (quebra de linha), seguido do texto manipulado. Para entender melhor, veja o exemplo gráfico a seguir.</p>
 
-  <h4>8.4.2. Exemplo</h4>
+  <h4>8.42. Exemplo</h4>
 
   <p>Um exemplo didático de uso do <em>espaço reserva</em> é ir guardando nele algumas linhas do texto e mostrá-las depois no final do arquivo:</p>
 
@@ -993,7 +993,7 @@ h      guarda no espaço reserva
 
   <p>Ou seja, adicione no <em>espaço reserva</em> (comando <strong><code>H</code></strong>), as linhas que contêm a palavra <code>root</code> e na última linha do arquivo (endereço <strong><code>$</code></strong>), recupere o conteúdo do <em>espaço reserva</em> (comando <strong><code>g</code></strong>).</p>
 
-  <h4>8.4.3. Exemplo gráfico</h4>
+  <h4>8.43. Exemplo gráfico</h4>
 
   <p>Como os registradores são a parte mais <strong>obscura</strong> do <em>Sed</em> (mais por falta de documentação do que por complexidade), merecem uma explicação <strong>bem</strong> didática. Vamos lá.</p>
 
@@ -1147,7 +1147,7 @@ __________________                __________________
 
   <p>Ufa! Depois dessa não venha me dizer que não sabe como funcionam os <em>registradores internos</em> do <em>Sed</em> ;)</p>
 
-  <h4>8.4.4. Resumão</h4>
+  <h4>8.44. Resumão</h4>
 
   <ul>
     <li>Cada linha nova lida é colocada (sobrescrevendo) no <em>espaço padrão</em></li>
@@ -1157,14 +1157,14 @@ __________________                __________________
     <li>Registradores são simples! ;)</li>
   </ul>
 
-  <h4>8.4.5. Fluxograma</h4>
+  <h4>8.45. Fluxograma</h4>
 
   <p>Para uma representação gráfica dos fluxos e comandos que manipulam estes registradores, veja o tópico <a href="#fluxo-registradores">Fluxos dos registradores internos</a>.</p>
 	</section>
 	<section>
   <h2 id="fluxogramas">9. Fluxogramas</h2>
 
-  <h3 id="fluxo-texto">9.1. Fluxos do texto</h3>
+  <h3 id="fluxo-texto">9.1 Fluxos do texto</h3>
 
   <code>
 _________
@@ -1182,7 +1182,7 @@ ENTRADA  -------&gt;|    S E D    |-------------------&gt;
 
 </code>
 
-  <h3 id="fluxo-execucao">9.2. Fluxos da execução dos comandos</h3>
+  <h3 id="fluxo-execucao">9.2 Fluxos da execução dos comandos</h3>
 
   <code>
 _________
@@ -1207,7 +1207,7 @@ COMEÇO   ---------&gt;|  COMANDOS  |----------&gt; FIM DO PROGRAMA
 
 </code>
 
-  <h3 id="fluxo-registradores">9.3. Fluxos dos registradores internos</h3>
+  <h3 id="fluxo-registradores">9.3 Fluxos dos registradores internos</h3>
 
   <code>
 _________________               __________________

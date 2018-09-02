@@ -1,6 +1,6 @@
 // Imports
 @import 'imports/open-color.scss';
-@import 'imports/reset.scss';
+//@import 'imports/reset.scss';
 
 // Variáveis
 // Cores
@@ -91,12 +91,16 @@ p {
 }
 
 code {
-	background-color: $code-bg-color;
 	padding: 3px 4px;
+	font-family: monospace;
+	border-radius: 2px;
+	background-color: $code-bg-color;
 }
-nav ol,
-nav ul {
-	list-style: none;
+nav {
+	ul {
+		padding: 0;
+		list-style: none;
+	}
 }
 
 .container {
