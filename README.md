@@ -16,3 +16,4 @@ Para alterar arquivos de estilo, execute `gulp sass:watch` e altere os arquivos 
 - mudar cor do texto selecionado denrto das caixas de código
 - menu sticky
 - créditos e links no topo
+- subir css pra servir no github pages
