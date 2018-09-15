@@ -63,7 +63,8 @@ pre {
   border-radius: 3px;
   background-color: #212529;
   color: #dee2e6;
-  overflow-x: auto; }
+  overflow-x: auto;
+  line-height: 1rem; }
 
 code {
   padding: 2px;

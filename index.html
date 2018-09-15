@@ -1173,17 +1173,19 @@ cima.</p>
   <h3 id="fluxo-texto">9.1 Fluxos do texto</h3>
 
   <pre>
-────────_
+                                 ┌─────────┐
                             w    │         │   r
-                        +────>│ ARQUIVO │────>
-                        │        │────────_│
-                  ──────│──────                       SAÍDA
+                        ┌───────>│ ARQUIVO │────>
+                        │        │         │   
+                        │        └─────────┘
+                 ┌─────────────┐                      SAÍDA
             n    │             │           p P l
-ENTRADA  ────>│    S E D    │──────────>
-            N    │────────────_│           a i c
+ENTRADA ────────>│    S E D    │──────────>
+            N    │             │           a i c
+                 └─────────────┘           
                         │
                         │   d
-                        +────> /dev/null
+                        └────> /dev/null
                             D
 
 </pre>
@@ -1191,24 +1193,27 @@ ENTRADA  ────>│    S E D    │──────────>
   <h3 id="fluxo-execucao">9.2 Fluxos da execução dos comandos</h3>
 
   <pre>
-────────_
+          ┌─────────┐
           │         │
-    ──────│ próxima │<──+
-   /      │  linha  │    │
-   │      │────────_│    │
+   ┌──────│ próxima │<───┐
+   │      │  linha  │    │
+   │      │         │    │ 
+   │      └─────────┘    │
    │                     │
    v                 d D │ n N
-                    ────_│──────
+                   ┌────────────┐
                    │            │
-COMEÇO   ─────>│  COMANDOS  │─────> FIM DO PROGRAMA
-                   │────────────│  q
+COMEÇO   ─────────>│  COMANDOS  │─────> FIM DO PROGRAMA
+                   │            │  q 
+                   └────────────┘   
                      │       ^
                    b │ t     │
                      │       │
-                     │    ──_│──────
+                     │   ┌──────────┐
                      │   │          │
-                     +─>│ marcação │
-                         │──────────│
+                     └──>│ marcação │
+                         │          │
+                         └──────────┘
 
 
 </pre>
@@ -1216,10 +1221,11 @@ COMEÇO   ─────>│  COMANDOS  │─────> FIM DO PROGRAMA
   <h3 id="fluxo-registradores">9.3 Fluxos dos registradores internos</h3>
 
   <pre>
-────────────────_               ──────────────────
-│                 │── h H ──>│                  │
-│  ESPAÇO PADRÃO  │<──  x  ──>│  ESPAÇO RESERVA  │
-│────────────────_│<── g G ──│──────────────────│
+┌─────────────────┐           ┌──────────────────┐
+│                 │─── h H ──>│                  │
+│  espaço padrão  │<──  x ───>│  espaço reserva  │
+│                 │<─── g G ──│                  │
+└─────────────────┘           └──────────────────┘
 
 
 </pre>
