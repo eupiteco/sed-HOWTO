@@ -340,9 +340,9 @@ na saída padrão (STDOUT). vai para a próxima linha e repete o processo.</li>
 
   <p>Como notação tradicional, o que está <code>[entre colchetes]</code> é opcional, então a sintaxe <em>Sed</em> mais simples que existe é <code>sed regra</code> como em:</p>
 
-  <pre>prompt$ cat texto.txt | sed p </pre>
+  <pre>prompt$ cat texto.txt │ sed p </pre>
 
-  <p>Ou seja, o <em>Sed</em> lendo da entrada padrão o conteúdo do arquivo <em>texto.txt</em> via duto <strong><code>|</code></strong>, aplica o comando <strong><code>p</code></strong> para todas as linhas do arquivo, ou seja, as duplica.</p>
+  <p>Ou seja, o <em>Sed</em> lendo da entrada padrão o conteúdo do arquivo <em>texto.txt</em> via duto <strong><code>│</code></strong>, aplica o comando <strong><code>p</code></strong> para todas as linhas do arquivo, ou seja, as duplica.</p>
 
   <h4>3.2.2 Outros exemplos</h4>
 
@@ -360,14 +360,14 @@ na saída padrão (STDOUT). vai para a próxima linha e repete o processo.</li>
 
   <p>A execução do <em>Sed</em> é igual a de outro aplicativo qualquer 
 de manipulação de texto, aceitando como parâmetro um nome de arquivo, ou
- na falta deste, lê o texto da <strong>entrada padrão</strong>, via duto <strong><code>|</code></strong> ou redirecionamento <strong><code>&lt;</code></strong>.</p>
+ na falta deste, lê o texto da <strong>entrada padrão</strong>, via duto <strong><code>│</code></strong> ou redirecionamento <strong><code><</code></strong>.</p>
 
   <p>E como dica geral <strong>SEMPRE</strong> coloque os comandos do <em>Sed</em> entre aspas simples '', para evitar que o <em>shell</em> os interprete erroneamente. Veja mais detalhes no tópico <a href="#sed-e-shell">Sed e shell</a>.</p>
 
 <pre>
 prompt$ sed 'p' texto.txt 
-prompt$ cat texto.txt | sed 'p'
-prompt$ sed 'p' &lt; texto.txt
+prompt$ cat texto.txt │ sed 'p'
+prompt$ sed 'p' < texto.txt
 </pre>
 
   <p>Com outra opção ainda, pode-se executar diretamente um arquivo com comandos Sed. Para mais informações, veja o tópico <a href="#arquivos-executaveis">Tornando arquivos Sed executáveis</a>.</p>
@@ -666,22 +666,22 @@ exemplo a vírgula:</p>
 
   <p>O procedimento comum quando se quer gravar num arquivo o resultado de um comando <em>Sed</em>, é o redirecionamento:</p>
 
-  <pre>prompt$ sed 'comando' texto.txt &gt; texto-alterado.txt </pre>
+  <pre>prompt$ sed 'comando' texto.txt > texto-alterado.txt </pre>
 
   <p>Mas é muito comum, ao alterarmos um arquivo, queremos gravar estas alterações no <strong>próprio</strong> arquivo original. A tentativa intuitiva seria:</p>
 
-  <pre>prompt$ sed 'comando' texto.txt &gt; texto.txt </pre>
+  <pre>prompt$ sed 'comando' texto.txt > texto.txt </pre>
 
   <p>Mas é só fazer para ver. Além de não dar certo, você ainda perderá <strong>todo</strong> o conteúdo do arquivo.</p>
 
-  <p>Isso acontece porque ao fazer o redirecionamento <strong><code>&gt;</code></strong>, o <code>shell</code> abre imediatamente o arquivo referenciado, antes mesmo de começar a executar o comando <em>Sed</em>. E como este é um redirecionamento destrutivo <strong><code>&gt;</code></strong> e não incremental <strong><code>&gt;&gt;</code></strong>, se o arquivo já existir, ele será truncado, e seu conteúdo perdido. A essa altura, o <em>Sed</em> começará seu processamento já lendo um arquivo <em>texto.txt</em> vazio, e aplicados qualquer comandos <em>Sed</em> num arquivo vazio, o resultado será o próprio arquivo vazio.</p>
+  <p>Isso acontece porque ao fazer o redirecionamento <strong><code>></code></strong>, o <code>shell</code> abre imediatamente o arquivo referenciado, antes mesmo de começar a executar o comando <em>Sed</em>. E como este é um redirecionamento destrutivo <strong><code>></code></strong> e não incremental <strong><code>>></code></strong>, se o arquivo já existir, ele será truncado, e seu conteúdo perdido. A essa altura, o <em>Sed</em> começará seu processamento já lendo um arquivo <em>texto.txt</em> vazio, e aplicados qualquer comandos <em>Sed</em> num arquivo vazio, o resultado será o próprio arquivo vazio.</p>
 
   <h4>6.4.2 Solução genérica</h4>
 
   <p>Para evitar isso, voltamos a primeira tática de gravar o resultado num outro arquivo, e depois o mais natural é <strong>mover</strong> o arquivo novo sobre o original:</p>
 
   <pre>
-prompt$ sed 'comando' texto.txt &gt; texto-alterado.txt
+prompt$ sed 'comando' texto.txt > texto-alterado.txt
 prompt$ mv texto-alterado.txt texto.txt
 </pre>
 
@@ -699,7 +699,7 @@ sobre o original, este perderá seus atributos e ficará com os padrões do
 
   <pre>
 prompt$ cp -a texto.txt texto-tmp.txt
-prompt$ sed 'comando' texto-tmp.txt &gt; texto.txt
+prompt$ sed 'comando' texto-tmp.txt > texto.txt
 prompt$ rm texto-tmp.txt
 </pre>
 
@@ -773,7 +773,7 @@ prompt$ /g' texto.txt
 
   <p>O comando <strong><code>w</code></strong> grava num arquivo a linha atual, ou melhor, o conteúdo do <em>espaço padrão</em>. Por exemplo, você quer gravar num arquivo o resultado de uma busca por linhas que contêm a palavra <code>estorvo</code>. A solução não-Sed seria:</p>
 
-  <pre>prompt$ grep 'estorvo' texto.txt &gt; estorvos.txt </pre>
+  <pre>prompt$ grep 'estorvo' texto.txt > estorvos.txt </pre>
 
   <p>Nosso similar em Sed seria:</p>
 
@@ -792,10 +792,10 @@ independente do número de linhas de ambos.</p>
   <p>Essa é simples, basta usar o comando <strong><code>c</code></strong>, que "Coloca" um texto no lugar da linha atual. A única complicação é definir o <em>endereço</em>,
  para aplicar o comando apenas nas linhas desejadas. Por exemplo, vamos 
 colocar uma frase no lugar de uma área de texto pré-formatado num 
-documento HTML. Esta área é delimitada pelos identificadores <strong><code>&lt;pre&gt;</code></strong> e <strong><code>&lt;/pre&gt;</code></strong>:</p>
+documento HTML. Esta área é delimitada pelos identificadores <strong><code><pre></code></strong> e <strong><code></pre></code></strong>:</p>
 
   <pre>
-prompt$ sed '/&lt;pre&gt;/,/&lt;\/pre&gt;/c \
+prompt$ sed '/<pre>/,/<\/pre>/c \
 prompt$ aqui tinha texto pré-formatado' texto.html
 </pre>
 
@@ -803,7 +803,7 @@ prompt$ aqui tinha texto pré-formatado' texto.html
 
   <p>No <em>Sed</em> da GNU, a partir da versão <strong>3.0a</strong>(*), é permitido que se coloque o texto na mesma linha:</p>
 
-  <pre>prompt$ sed '/&lt;pre&gt;/,/&lt;\/pre&gt;/c aqui tinha texto pré-formatado' texto.html </pre>
+  <pre>prompt$ sed '/<pre>/,/<\/pre>/c aqui tinha texto pré-formatado' texto.html </pre>
 
   <p>(*) veja o tópico <a href="#gnu">Nota sobre os adicionais GNU</a></p>
 
@@ -812,7 +812,7 @@ prompt$ aqui tinha texto pré-formatado' texto.html
   <p>Similarmente a trocar por apenas uma linha, pode-se usar o comando <strong><code>c</code></strong> e passar várias linhas para ele. O único detalhe é que todas as linhas devem ser <strong>escapadas</strong> no final, menos a última:</p>
 
   <pre>
-prompt$ sed '/&lt;pre&gt;/,/&lt;\/pre&gt;/c \
+prompt$ sed '/<pre>/,/<\/pre>/c \
 prompt$ aqui tinha texto pré-formatado,\
 prompt$ mas eu resolvi tirar.\
 prompt$ porque?\
@@ -826,20 +826,20 @@ melhor colocá-lo num arquivo. Saiba mais detalhes sobre isso no tópico <a href
 
   <p>Supondo que nosso texto explicativo do porquê da retirada do texto pré-formatado foi gravado no arquivo <em>desculpa.txt</em>, utilizaremos o comando <strong><code>r</code></strong> para lê-lo e o comando <strong><code>d</code></strong> para apagar o texto antigo:</p>
 
-  <code>prompt$ sed -e '/&lt;\/pre&gt;/r desculpa.txt' -e '/&lt;pre&gt;/,/&lt;\/pre&gt;/d' texto.html </code>
+  <code>prompt$ sed -e '/<\/pre>/r desculpa.txt' -e '/<pre>/,/<\/pre>/d' texto.html </code>
 
-  <p>Então acompanhe o que acontece: o primeiro comando será executado apenas na linha <code>&lt;/pre&gt;</code> que é o fechamento do trecho, então vamos esquecer dele por enquanto. O segundo comando diz para apagar o trecho desde <code>&lt;pre&gt;</code> até <code>&lt;/pre&gt;</code>, então assim que começar o trecho, ele vai apagando, linha por linha.</p>
+  <p>Então acompanhe o que acontece: o primeiro comando será executado apenas na linha <code></pre></code> que é o fechamento do trecho, então vamos esquecer dele por enquanto. O segundo comando diz para apagar o trecho desde <code><pre></code> até <code></pre></code>, então assim que começar o trecho, ele vai apagando, linha por linha.</p>
 
-  <p>Ao chegar na linha que contém o <code>&lt;/pre&gt;</code>, o primeiro comando <em>Sed</em> entra em ação e lê o arquivo <em>desculpa.txt</em>, colocando seu conteúdo imediatamente após a linha atual. Em seguida, o segundo comando apaga a linha <code>&lt;/pre&gt;</code>, completando a tarefa.</p>
+  <p>Ao chegar na linha que contém o <code></pre></code>, o primeiro comando <em>Sed</em> entra em ação e lê o arquivo <em>desculpa.txt</em>, colocando seu conteúdo imediatamente após a linha atual. Em seguida, o segundo comando apaga a linha <code></pre></code>, completando a tarefa.</p>
 
   <p>Esta segunda solução é mais difícil de entender e implementar, mas é
  muito mais prática caso a alteração do texto a ser colocado seja 
 freqüente, além destas alterações poderem ser feitas por alguém que nem 
 saiba o que é <em>Sed</em>, pois será apenas um texto normal.</p>
 
-  <p>Note que sempre que o <code>&lt;/pre&gt;</code> foi referenciado nos <em>endereços</em>, a barra foi escapada, ficando <code>&lt;\/pre&gt;</code>. A explicação desse escape está em <a href="#outros-delimitadores">Usando outros delimitadores</a>.</p>
+  <p>Note que sempre que o <code></pre></code> foi referenciado nos <em>endereços</em>, a barra foi escapada, ficando <code><\/pre></code>. A explicação desse escape está em <a href="#outros-delimitadores">Usando outros delimitadores</a>.</p>
 
-  <p><strong>obs.:</strong> talvez o <code>&lt;pre&gt;&lt;/pre&gt;</code> não seja um exemplo dos mais didáticos, mas não me veio algo mais comum à mente...</p>
+  <p><strong>obs.:</strong> talvez o <code><pre></pre></code> não seja um exemplo dos mais didáticos, mas não me veio algo mais comum à mente...</p>
 
   <h3 id="emular-outros-comandos">7.6 Emulando outros comandos</h3>
 
@@ -904,7 +904,7 @@ por um <em>tail -f</em>.</p>
 
   <p>Um exemplo prático seria mostrar apenas as mensagens do sistema relativas às conexões <em>ssh</em>:</p>
 
-  <pre>prompt$ tail -f /var/log/messages | sed -nu '/sshd/p' </pre>
+  <pre>prompt$ tail -f /var/log/messages │ sed -nu '/sshd/p' </pre>
 
   <p>Cuidado com -nu perto de crianças! :)</p>
 
@@ -961,7 +961,7 @@ prompt$ chmod +x programa.sed
 
   <pre>
 prompt$ ./programa.sed texto.txt
-prompt$ cat texto.txt | ./programa.sed
+prompt$ cat texto.txt │ ./programa.sed
 </pre>
 
   <h3 id="registradores-internos">8.4 Conhecendo os registradores internos</h3>
@@ -1006,10 +1006,10 @@ cópia da linha original, parte dela, ou agrupar dados diversos de várias
   <p>Temos os dois registradores vazios: (que daqui pra frente serão chamados apenas de <em>padrão</em> e <em>reserva</em>)</p>
 
   <pre>
-__________________                __________________
-     |                  |              |                  |
-     |                  |              |                  |
-     |__________________|              |__________________|
+─────┬───────────                ──────┬───────────
+     │                  │              │                  │
+     │                  │              │                  │
+     └──────────────────┘              └──────────────────┘
         espaço padrão                     espaço reserva
 </pre>
 
@@ -1043,20 +1043,20 @@ abacaxi
   <p>Vejamos o que aconteceu. Lida a primeira linha <code>laranja</code>, ela é imediatamente colocada no <em>padrão</em> para ser manipulada:</p>
 
   <pre>
-__________________                __________________
-     |                  |              |                  |
-     |      laranja     |              |                  |
-     |__________________|              |__________________|
+─────┬───────────                ──────┬───────────
+     │                  │              │                  │
+     │     laranja      │              │                  │
+     └──────────────────┘              └──────────────────┘
         espaço padrão                     espaço reserva
 </pre>
 
   <p>O comando direcionado a ela é o <strong><code>h</code></strong>, que guarda uma cópia dela no <em>reserva</em>:</p>
 
   <pre>
-__________________                __________________
-     |                  |              |                  |
-     |      laranja     |   -- h --&gt;   |      laranja     |
-     |__________________|              |__________________|
+─────┬───────────                ──────┬───────────
+     │                  │              │                  │
+     │      laranja     │   ─ h ─>     │      laranja     │
+     └──────────────────┘              └──────────────────┘
         espaço padrão                     espaço reserva
 </pre>
 
@@ -1065,20 +1065,20 @@ __________________                __________________
   <p>Beleza, agora ele vai processar a segunda linha, novamente a primeira coisa é colocá-la no <em>padrão</em>, sobrescrevendo o que tinha antes:</p>
 
   <pre>
-__________________                __________________
-     |                  |              |                  |
-     |        uva       |              |      laranja     |
-     |__________________|              |__________________|
+─────┬───────────                ──────┬───────────
+     │                  │              │                  │
+     │        uva       │              │      laranja     │
+     └──────────────────┘              └──────────────────┘
         espaço padrão                     espaço reserva
 </pre>
 
   <p>O <em>reserva</em>, enquanto nenhum outro comando escrever nele, permanecerá o mesmo. O comando direcionado à linha <code>uva</code> é o <strong><code>g</code></strong>, que pega o conteúdo do <em>reserva</em> e o coloca no <em>padrão</em>, apagando o que estiver nele (neste caso: <code>uva</code>):</p>
 
   <pre>
-__________________                __________________
-     |                  |              |                  |
-     |      laranja     |   &lt;-- g --   |      laranja     |
-     |__________________|              |__________________|
+─────┬───────────                ──────┬───────────
+     │                  │              │                  │
+     │      laranja     │   <─ g ─     │      laranja     │
+     └──────────────────┘              └──────────────────┘
         espaço padrão                     espaço reserva
 </pre>
 
@@ -1087,40 +1087,40 @@ __________________                __________________
   <p>Indo para a terceira linha e colocando-a no <em>padrão</em>:</p>
 
   <pre>
-__________________                __________________
-     |                  |              |                  |
-     |      abacaxi     |              |      laranja     |
-     |__________________|              |__________________|
+─────┬───────────                ──────┬───────────
+     │                  │              │                  │
+     │      abacaxi     │              │      laranja     │
+     └──────────────────┘              └──────────────────┘
         espaço padrão                     espaço reserva
 </pre>
 
   <p>O comando dessa linha é o <strong><code>H</code></strong>, que tal como o <strong><code>h</code></strong>, guarda o conteúdo do <em>padrão</em> no <em>reserva</em>, com diferença que ele preserva o conteúdo já existente dele, separando com um <strong><code>\n</code></strong>:</p>
 
   <pre>
-__________________                __________________
-     |                  |              |                  |
-     |      abacaxi     |   -- H --&gt;   | laranja\nabacaxi |
-     |__________________|              |__________________|
+─────┬───────────                ──────┬───────────
+     │                  │              │                  │
+     │      abacaxi     │   ─ H ─>     │ laranja\nabacaxi │
+     └──────────────────┘              └──────────────────┘
         espaço padrão                     espaço reserva
 </pre>
 
   <p>Novamente, chegou ao fim, imprime o <em>padrão</em>: "abacaxi". a próxima linha é a da <code>melancia</code>:</p>
 
   <pre>
-__________________                __________________
-     |                  |              |                  |
-     |     melancia     |              | laranja\nabacaxi |
-     |__________________|              |__________________|
+─────┬───────────                ──────┬───────────
+     │                  │              │                  │
+     │     melancia     │              │ laranja\nabacaxi │
+     └──────────────────┘              └──────────────────┘
         espaço padrão                     espaço reserva
 </pre>
 
   <p>E agora vai ficar divertido, aplicando o comando <strong><code>G</code></strong>, que pega o conteúdo do <em>reserva</em> e anexa ao <em>padrão</em>:</p>
 
   <pre>
-____________________________           __________________
-|                            |         |                  |
-| melancia\nlaranja\nabacaxi |  &lt;-G--  | laranja\nabacaxi |
-|____________________________|         |__________________|
+┌────────────────────────────┐           ┌──────────────────┐
+│                            │           │                  │
+│ melancia\nlaranja\nabacaxi │  <─G─     │ laranja\nabacaxi │
+└────────────────────────────┘           └──────────────────┘
         espaço padrão                    espaço reserva
 </pre>
 
@@ -1132,20 +1132,20 @@ cima.</p>
   <p>E finalmente, a última linha:</p>
 
   <pre>
-__________________                __________________
-     |                  |              |                  |
-     |      mimosa      |              | laranja\nabacaxi |
-     |__________________|              |__________________|
+─────┬───────────                ──────┬───────────
+     │                  │              │                  │
+     │      mimosa      │              │ laranja\nabacaxi │
+     └──────────────────┘              └──────────────────┘
         espaço padrão                     espaço reserva
 </pre>
 
   <p>E para ela, o comando que troca o conteúdo dos 2 registradores, o <strong><code>x</code></strong>:</p>
 
   <pre>
-__________________                __________________
-     |                  |              |                  |
-     | laranja\nabacaxi |  &lt;-- x ---&gt;  |      mimosa      |
-     |__________________|              |__________________|
+─────┬───────────                    ──────┬───────────
+     │                  │                  │                  │
+     │ laranja\nabacaxi │  <─ x ──>        │      mimosa      │
+     └──────────────────┘                  └──────────────────┘
         espaço padrão                     espaço reserva
 </pre>
 
@@ -1173,17 +1173,17 @@ __________________                __________________
   <h3 id="fluxo-texto">9.1 Fluxos do texto</h3>
 
   <pre>
-_________
-                            w    |         |   r
-                        +-------&gt;| ARQUIVO |-------&gt;
-                        |        |_________|
-                  ______|______                       SAÍDA
-            n    |             |           p P l
-ENTRADA  -------&gt;|    S E D    |-------------------&gt;
-            N    |_____________|           a i c
-                        |
-                        |   d
-                        +-------&gt; /dev/null
+────────_
+                            w    │         │   r
+                        +────>│ ARQUIVO │────>
+                        │        │────────_│
+                  ──────│──────                       SAÍDA
+            n    │             │           p P l
+ENTRADA  ────>│    S E D    │──────────>
+            N    │────────────_│           a i c
+                        │
+                        │   d
+                        +────> /dev/null
                             D
 
 </pre>
@@ -1191,24 +1191,24 @@ ENTRADA  -------&gt;|    S E D    |-------------------&gt;
   <h3 id="fluxo-execucao">9.2 Fluxos da execução dos comandos</h3>
 
   <pre>
-_________
-          |         |
-    ______| próxima |&lt;---+
-   /      |  linha  |    |
-   |      |_________|    |
-   |                     |
-   v                 d D | n N
-                    _____|______
-                   |            |
-COMEÇO   ---------&gt;|  COMANDOS  |----------&gt; FIM DO PROGRAMA
-                   |____________|  q
-                     |       ^
-                   b | t     |
-                     |       |
-                     |    ___|______
-                     |   |          |
-                     +--&gt;| marcação |
-                         |__________|
+────────_
+          │         │
+    ──────│ próxima │<──+
+   /      │  linha  │    │
+   │      │────────_│    │
+   │                     │
+   v                 d D │ n N
+                    ────_│──────
+                   │            │
+COMEÇO   ─────>│  COMANDOS  │─────> FIM DO PROGRAMA
+                   │────────────│  q
+                     │       ^
+                   b │ t     │
+                     │       │
+                     │    ──_│──────
+                     │   │          │
+                     +─>│ marcação │
+                         │──────────│
 
 
 </pre>
@@ -1216,10 +1216,10 @@ COMEÇO   ---------&gt;|  COMANDOS  |----------&gt; FIM DO PROGRAMA
   <h3 id="fluxo-registradores">9.3 Fluxos dos registradores internos</h3>
 
   <pre>
-_________________               __________________
-|                 |---- h H ---&gt;|                  |
-|  ESPAÇO PADRÃO  |&lt;---  x  ---&gt;|  ESPAÇO RESERVA  |
-|_________________|&lt;--- g G ----|__________________|
+────────────────_               ──────────────────
+│                 │── h H ──>│                  │
+│  ESPAÇO PADRÃO  │<──  x  ──>│  ESPAÇO RESERVA  │
+│────────────────_│<── g G ──│──────────────────│
 
 
 </pre>
