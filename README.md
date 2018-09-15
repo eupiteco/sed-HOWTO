@@ -16,4 +16,4 @@ Para alterar arquivos de estilo, execute `gulp sass:watch` e altere os arquivos 
 - mudar cor do texto selecionado denrto das caixas de código
 - juntar cabeçalho no conteúdo
 - Botão de voltar para o topo
-- créditos e links no topo
+- créditos e links no rodapé
