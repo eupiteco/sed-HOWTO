@@ -14,5 +14,6 @@ Para alterar arquivos de estilo, execute `gulp sass:watch` e altere os arquivos 
 - trocar \_, -, | por unicodes de caixa e seta
 - colocar links nos números referenciando a própria sessão para poder copicolar com facilidade
 - mudar cor do texto selecionado denrto das caixas de código
-- menu sticky
+- juntar cabeçalho no conteúdo
+- Botão de voltar para o topo
 - créditos e links no topo
