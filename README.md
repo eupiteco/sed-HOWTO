@@ -11,7 +11,5 @@ Para alterar arquivos de estilo, execute `gulp sass:watch` e altere os arquivos 
 ## Lista TODO
 
 - hospedar no github pages (falta colocar o index direto na raiz)
-- trocar \_, -, | por unicodes de caixa e seta
 - colocar links nos números referenciando a própria sessão para poder copicolar com facilidade
-- mudar cor do texto selecionado denrto das caixas de código
 - Botão de voltar para o topo
