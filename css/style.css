@@ -102,3 +102,14 @@ table {
 .container {
   max-width: 1600px;
   margin: 0 auto; }
+
+#scroll_top {
+  color: white;
+  background: #66a80f;
+  padding: 10px 5px;
+  border-radius: 5px;
+  font-size: 2.3rem;
+  font-weight: bold;
+  position: fixed;
+  bottom: 20px;
+  right: 20px; }

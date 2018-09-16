@@ -12,4 +12,3 @@ Para alterar arquivos de estilo, execute `gulp sass:watch` e altere os arquivos 
 
 - hospedar no github pages (falta colocar o index direto na raiz)
 - colocar links nos números referenciando a própria sessão para poder copicolar com facilidade
-- Botão de voltar para o topo
